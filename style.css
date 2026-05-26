@@ -255,6 +255,13 @@ textarea {
   gap: 10px;
   color: #cbd5e1;
   font-size: 0.95rem;
+  align-items: center;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
 }
 
 .hero-visual {
