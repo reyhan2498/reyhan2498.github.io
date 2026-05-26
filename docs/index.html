@@ -36,23 +36,29 @@
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Change site style">
+          <i class="fa-solid fa-palette"></i>
+          <span>Style</span>
+        </button>
       </header>
 
       <main>
         <section class="hero" id="home">
           <div class="hero-copy">
             <p class="eyebrow reveal-item delay-1">Hi, I'm Reyhan</p>
-            <h1 class="reveal-item delay-2">I build polished web products, data-driven tools, and seamless UX.</h1>
+            <h1 class="reveal-item delay-2">I design modern digital products that feel premium and perform reliably.</h1>
             <p class="reveal-item delay-3">
-              I bring modern design, JavaScript engineering, and backend reliability
-              together to create websites and applications that work beautifully.
+              I combine clean frontend interfaces, data-driven logic, and scalable backend architecture
+              to build websites and apps that users love.
             </p>
-            <p class="hero-tagline reveal-item delay-4">
-              Fast interfaces, thoughtful interactions, and reliable deployments.
-            </p>
+            <div class="hero-badges reveal-item delay-4">
+              <span>Web apps</span>
+              <span>Product design</span>
+              <span>Data systems</span>
+            </div>
             <div class="hero-actions reveal-item delay-5">
               <a class="button primary" href="#projects">Explore Projects</a>
-              <a class="button secondary" href="story.html">Read My Story</a>
+              <a class="button secondary" href="story.html">Discover My Story</a>
             </div>
             <div class="social-row reveal-item delay-6">
               <a href="https://github.com/reyhan2498" target="_blank" rel="noreferrer"
@@ -66,9 +72,9 @@
               >
             </div>
           </div>
-          <div class="hero-visual">
+          <div class="hero-visual reveal-item delay-7">
             <div class="hero-card">
-              <img src="images/pic01.jpg" alt="Reyhan portfolio sample" />
+              <img src="images/background.jpg" alt="Modern product dashboard preview" />
             </div>
           </div>
         </section>
@@ -157,5 +163,6 @@
     </div>
 
     <script type="module" src="main.js"></script>
+    <script type="module" src="theme-switcher.js"></script>
   </body>
 </html>

@@ -1,10 +1,39 @@
 :root {
+  --bg: #05070f;
+  --surface: rgba(15, 23, 42, 0.88);
+  --surface-soft: rgba(15, 23, 42, 0.65);
+  --surface-strong: rgba(10, 15, 25, 0.95);
+  --text: #e5e8f1;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.12);
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.18);
+  --shadow: 0 35px 90px rgba(0, 0, 0, 0.18);
+  --button-bg: #38bdf8;
+  --button-text: #020617;
+  --alt-bg: #070b1a;
+  --alt-surface: rgba(20, 25, 50, 0.95);
   color-scheme: dark;
   font-family: 'Inter', system-ui, sans-serif;
-  background: #05070f;
-  color: #e5e8f1;
+  background: var(--bg);
+  color: var(--text);
   font-size: 16px;
   line-height: 1.7;
+}
+
+[data-theme='alt'] {
+  --bg: #070b1a;
+  --surface: rgba(18, 23, 44, 0.88);
+  --surface-soft: rgba(19, 25, 50, 0.55);
+  --surface-strong: rgba(10, 12, 28, 0.95);
+  --text: #f8fafc;
+  --muted: #a5b4fc;
+  --border: rgba(148, 163, 184, 0.16);
+  --accent: #f472b6;
+  --accent-soft: rgba(244, 114, 182, 0.16);
+  --shadow: 0 35px 90px rgba(0, 0, 0, 0.2);
+  --button-bg: #f472b6;
+  --button-text: #0f172a;
 }
 
 * {
@@ -20,8 +49,8 @@ body {
   min-height: 100vh;
   background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 24%),
     radial-gradient(circle at 90% 10%, rgba(16, 185, 129, 0.12), transparent 20%),
-    linear-gradient(180deg, #04060d 0%, #090b13 100%);
-  color: #e5e8f1;
+    var(--bg);
+  color: var(--text);
 }
 
 a {
@@ -68,7 +97,7 @@ textarea {
 }
 
 .site-nav a:hover {
-  color: #7dd3fc;
+  color: var(--accent);
 }
 
 .menu-toggle {
@@ -91,7 +120,7 @@ textarea {
   content: '';
   position: absolute;
   inset: 6% 0 0 40%;
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 45%);
+  background: radial-gradient(circle at top left, var(--accent-soft), transparent 45%);
   filter: blur(70px);
   pointer-events: none;
 }
@@ -136,7 +165,54 @@ textarea {
   margin-bottom: 24px;
 }
 
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.hero-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.16);
+  font-size: 0.95rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.8);
+  color: var(--text);
+  border-radius: 9999px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 9999px;
+  padding: 14px 24px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -153,14 +229,19 @@ textarea {
 }
 
 .button.primary {
-  background: #38bdf8;
-  color: #020617;
+  background: var(--button-bg);
+  color: var(--button-text);
 }
 
 .button.secondary {
   border: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(15, 23, 42, 0.9);
-  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text);
+}
+
+[data-theme='alt'] .hero-badges span {
+  background: rgba(244, 114, 182, 0.12);
+  border-color: rgba(244, 114, 182, 0.18);
 }
 
 .social-row {
@@ -185,9 +266,9 @@ textarea {
   width: min(560px, 100%);
   border-radius: 36px;
   overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(15, 23, 42, 0.85);
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
   animation: float 9s ease-in-out infinite;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -267,7 +348,7 @@ textarea {
   gap: 16px;
   border-radius: 28px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface-soft);
   border: 1px solid rgba(148, 163, 184, 0.08);
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
@@ -356,7 +437,7 @@ section,
   gap: 24px;
   padding: 40px 32px;
   border-radius: 30px;
-  background: linear-gradient(180deg, rgba(56, 189, 248, 0.08), rgba(59, 130, 246, 0.02));
+  background: linear-gradient(180deg, var(--accent-soft), rgba(15, 23, 42, 0.08));
   border: 1px solid rgba(56, 189, 248, 0.14);
 }
 
@@ -375,7 +456,7 @@ section,
 .contact-card {
   padding: 28px;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface-soft);
   border: 1px solid rgba(148, 163, 184, 0.11);
 }
 
