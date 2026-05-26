@@ -1,48 +1,30 @@
 # Reyhan Al-katiri Portfolio
 
-This repository contains the static portfolio website for `reyhan2498.github.io`.
+Static portfolio for [reyhan2498.github.io](https://reyhan2498.github.io) — dark IDE-inspired layout (inspired by [tamalsen.dev](https://tamalsen.dev)).
 
 ## Structure
 
-- `index.html` — Main portfolio landing page
-- `story.html` — MegaBliss case study page
-- `style.css` — Global stylesheet, animations, and responsive layout
-- `main.js` — Renders projects, skills, experience, and education on the home page
-- `ui.js` — Shared mobile menu, scroll reveal, and active nav
-- `story.js` — Lightweight script for the case study page only
-- `projects.js` — Project card data and filter categories
-- `site-data.js` — Skills, experience, education, and stats (aligned with CV)
+- `index.html` — Home (hero, expertise, work, experience, contact)
+- `story.html` — MegaBliss case study
+- `style.css` — IDE theme (navy + teal accent, JetBrains Mono)
+- `main.js` — Renders dynamic sections on the home page
+- `ui.js` — Code background, nav, scroll reveal, scroll-to-top
+- `story.js` — Case study page scripts
+- `projects.js` — Project data and filters
+- `site-data.js` — Expertise, experience, education
 - `assets/CV.pdf` — Downloadable resume
-- `images/` — Static image assets used across the site
-- `docs/` — Deployment copy for GitHub Pages
+- `images/` — Screenshots and logo
+- `docs/` — GitHub Pages deployment copy
 
 ## Local preview
 
-Open `index.html` directly in your browser, or serve the site locally with a simple static server.
-
-Example using Python:
-
 ```powershell
+cd "d:\Users\reyha\Documents\Github\reyhan2498.github.io"
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Open http://localhost:8000
 
-## GitHub Pages deployment
+## Deploy
 
-This repository is set up for GitHub Pages with the `docs/` folder as the published site.
-
-1. Ensure GitHub Pages is configured to publish from the `main` branch and the `docs/` folder.
-2. Keep the contents of `docs/` synced with the root site files.
-3. Push changes to the repository.
-
-## Updating the site
-
-Edit files in the repository root, then copy them into `docs/` before pushing (HTML, CSS, JS, and `assets/`). Images live in `images/` at the root and in `docs/images/` for deployment.
-
-- Add or update project entries in `projects.js`.
-- Update CV content in `site-data.js` and static copy in `index.html` / `story.html`.
-
-## Notes
-
-The site is built as a lightweight, static HTML/CSS/JS portfolio suitable for GitHub Pages and easy maintenance.
+GitHub Pages should publish from the `main` branch, `/docs` folder. After editing root files, copy HTML, CSS, JS, and `assets/` into `docs/` before pushing.

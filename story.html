@@ -6,13 +6,13 @@
     <title>MegaBliss Case Study | Reyhan Al-katiri</title>
     <meta
       name="description"
-      content="Full stack internship case study at MegaBliss & MegaTransact — performance, UX, and API integration by Reyhan Al-katiri."
+      content="MegaBliss internship case study — performance, UX, and full stack delivery by Reyhan Al-katiri."
     />
     <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -23,172 +23,117 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body data-page="story">
-    <div class="bg-orbs" aria-hidden="true">
-      <span class="orb orb-1"></span>
-      <span class="orb orb-2"></span>
-      <span class="orb orb-3"></span>
-    </div>
+  <body data-page="story" class="page-story">
+    <div class="code-bg" id="code-bg" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
 
-    <div class="page-shell">
-      <header class="topbar">
-        <a class="brand" href="index.html">
-          <img src="images/logo.jpeg" alt="" class="brand-avatar" width="36" height="36" />
-          <span>Reyhan Al-katiri</span>
-        </a>
-        <button class="menu-toggle" aria-label="Toggle navigation">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <nav class="site-nav">
-          <a href="index.html#home">Home</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#experience">Experience</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
-        <a class="button ghost small" href="assets/CV.pdf" download>
-          <i class="fa-solid fa-file-arrow-down"></i> CV
-        </a>
-      </header>
+    <button type="button" class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-      <main>
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow reveal-item delay-1"><i class="fa-solid fa-book-open"></i> Case Study</p>
-            <h1 class="reveal-item delay-2">
-              MegaBliss &amp; MegaTransact
-              <span class="gradient-text">performance &amp; UX</span>
-            </h1>
-            <p class="hero-lead reveal-item delay-3">
-              Remote full stack internship (Nov 2023 – Apr 2024) optimising web platforms for
-              payment-related services — integrating React/Next.js with APIs and SQL-backed data.
-            </p>
-            <div class="hero-badges reveal-item delay-4">
-              <span><i class="fa-solid fa-chart-line"></i> +40% performance</span>
-              <span><i class="fa-solid fa-bolt"></i> −25% load time</span>
-              <span><i class="fa-solid fa-users"></i> −20% bounce rate</span>
+    <header class="site-header">
+      <a class="logo" href="index.html">
+        <span class="logo-bracket">&lt;</span>R<span class="logo-bracket">/&gt;</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Primary">
+        <ol>
+          <li><a href="index.html#home"><span class="nav-index">01.</span> Home</a></li>
+          <li><a href="index.html#work"><span class="nav-index">03.</span> Work</a></li>
+          <li><a href="index.html#contact"><span class="nav-index">06.</span> Contact</a></li>
+        </ol>
+      </nav>
+      <a class="btn-resume" href="assets/CV.pdf" download>Resume</a>
+    </header>
+
+    <main class="main-content">
+      <section class="hero">
+        <p class="hero-greeting reveal-item mono">Case Study</p>
+        <h1 class="hero-name reveal-item delay-1">MegaBliss Platform.</h1>
+        <h2 class="hero-title reveal-item delay-2">Full stack performance &amp; UX.</h2>
+        <p class="hero-desc reveal-item delay-3">
+          Remote internship at MegaBliss &amp; MegaTransact (Nov 2023 – Apr 2024) — integrating React/Next.js
+          with APIs and SQL while improving speed and engagement.
+        </p>
+        <div class="hero-cta reveal-item delay-4">
+          <a class="btn-primary" href="index.html#work"><i class="fa-solid fa-arrow-left"></i> All projects</a>
+        </div>
+      </section>
+
+      <div class="story-stats reveal-on-scroll">
+        <div class="story-stat">
+          <strong>40%</strong>
+          <span>Performance uplift</span>
+        </div>
+        <div class="story-stat">
+          <strong>25%</strong>
+          <span>Faster loads</span>
+        </div>
+        <div class="story-stat">
+          <strong>20%</strong>
+          <span>Lower bounce</span>
+        </div>
+        <div class="story-stat">
+          <strong>6 mo</strong>
+          <span>Duration</span>
+        </div>
+      </div>
+
+      <section class="section">
+        <header class="section-heading reveal-on-scroll">
+          <h2><span class="heading-index">//</span> Overview</h2>
+          <span class="heading-line"></span>
+        </header>
+        <div class="about-text reveal-on-scroll">
+          <p>
+            MegaBliss and MegaTransact provide online platforms and payment-related services. I integrated
+            front-end components with backend services, optimized API and database usage, and resolved UI/UX
+            issues affecting business users.
+          </p>
+          <p>
+            Stack: Next.js, React, Tailwind CSS, Chakra UI, REST APIs, and SQL — with a focus on load time,
+            reliability, and responsive layouts.
+          </p>
+        </div>
+
+        <div class="story-grid reveal-on-scroll">
+          <a class="work-card" href="index.html#work">
+            <div class="work-card-media">
+              <img src="images/pic06.png" alt="MegaBliss UI" loading="lazy" />
+              <div class="work-card-overlay"></div>
             </div>
-            <div class="hero-actions reveal-item delay-5">
-              <a class="button primary" href="index.html#projects"><i class="fa-solid fa-arrow-left"></i> All projects</a>
-              <a class="button secondary" href="index.html#contact">Contact me</a>
+            <div class="work-card-body">
+              <span class="work-card-cat mono">Platform</span>
+              <h3>Booking &amp; service UX</h3>
             </div>
-          </div>
-          <div class="hero-visual reveal-item delay-6">
-            <div class="hero-card">
-              <img src="images/pic06.png" alt="MegaBliss platform interface" />
-            </div>
-          </div>
-        </section>
-
-        <section class="stats-bar reveal-on-scroll">
-          <div class="stats-grid">
-            <article class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-              <p class="stat-value">40%</p>
-              <p class="stat-label">Website performance uplift</p>
-            </article>
-            <article class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
-              <p class="stat-value">25%</p>
-              <p class="stat-label">Faster page loads</p>
-            </article>
-            <article class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-              <p class="stat-value">20%</p>
-              <p class="stat-label">Lower bounce rate</p>
-            </article>
-            <article class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
-              <p class="stat-value">6 mo</p>
-              <p class="stat-label">Internship duration</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="about reveal-on-scroll" id="details">
-          <div class="section-header">
-            <p class="eyebrow"><i class="fa-solid fa-user-gear"></i> My role</p>
-            <h2>Full stack support for customer-facing platforms.</h2>
-          </div>
-          <div class="about-grid">
-            <div class="about-copy">
-              <p>
-                MegaBliss and MegaTransact focus on online platforms and payment-related services.
-                I integrated front-end components with backend services, worked with REST APIs and SQL
-                databases, and fixed UI/UX issues that affected engagement.
-              </p>
-              <p>
-                The work required close attention to load times, reliable data flow, and responsive
-                layouts using Next.js, React, Tailwind CSS, and Chakra UI.
-              </p>
-            </div>
-            <div class="skills-grid" style="grid-template-columns: 1fr">
-              <article class="skill-card">
-                <div class="skill-card-head">
-                  <span class="skill-icon"><i class="fa-brands fa-react"></i></span>
-                  <div><h3>Front-end integration</h3><p>Next.js · React · Chakra UI</p></div>
-                </div>
-              </article>
-              <article class="skill-card">
-                <div class="skill-card-head">
-                  <span class="skill-icon"><i class="fa-solid fa-plug"></i></span>
-                  <div><h3>APIs &amp; data</h3><p>REST · SQL · performance tuning</p></div>
-                </div>
-              </article>
-              <article class="skill-card">
-                <div class="skill-card-head">
-                  <span class="skill-icon"><i class="fa-solid fa-gauge-high"></i></span>
-                  <div><h3>UX &amp; reliability</h3><p>Load time · bounce rate · engagement</p></div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="projects reveal-on-scroll">
-          <div class="section-header">
-            <p class="eyebrow"><i class="fa-solid fa-trophy"></i> Outcomes</p>
-            <h2>What shipped and what improved.</h2>
-          </div>
-          <div class="grid">
-            <article class="project-card reveal-on-scroll">
-              <div class="project-card-media">
-                <img src="images/pic02.jpg" alt="Booking and service UI" loading="lazy" />
-              </div>
-              <div class="project-card-body">
-                <span class="project-meta">Interface</span>
-                <h3>Clearer user journeys</h3>
-                <p>Responsive layouts and navigation that reduced friction for business users.</p>
-              </div>
-            </article>
-            <article class="project-card reveal-on-scroll">
-              <div class="project-card-media">
-                <img src="images/pic05.png" alt="Backend and data flows" loading="lazy" />
-              </div>
-              <div class="project-card-body">
-                <span class="project-meta">Backend</span>
-                <h3>Reliable integrations</h3>
-                <p>API and database work that kept data consistent and pages fast under load.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="cta-panel reveal-on-scroll">
-          <div>
-            <p class="eyebrow">Next step</p>
-            <h2>Interested in similar full stack or performance work?</h2>
-          </div>
-          <a class="button primary" href="mailto:reyhan2498@gmail.com">
-            <i class="fa-solid fa-paper-plane"></i> Email me
           </a>
-        </section>
-      </main>
+          <a class="work-card" href="index.html#work">
+            <div class="work-card-media">
+              <img src="images/pic02.jpg" alt="Integration work" loading="lazy" />
+              <div class="work-card-overlay"></div>
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-cat mono">Backend</span>
+              <h3>API &amp; data integration</h3>
+            </div>
+          </a>
+        </div>
+      </section>
 
-      <footer class="footer">
-        <p><i class="fa-solid fa-code"></i> Designed &amp; built by Reyhan Al-katiri</p>
-      </footer>
-    </div>
+      <section class="section contact-section">
+        <div class="contact-box reveal-on-scroll">
+          <h3>Interested in similar work?</h3>
+          <p>I'm available for full stack roles and freelance projects.</p>
+          <a class="btn-primary" href="mailto:reyhan2498@gmail.com">reyhan2498@gmail.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p><span class="mono">//</span> Built by Reyhan Al-katiri</p>
+    </footer>
 
     <script type="module" src="story.js"></script>
   </body>

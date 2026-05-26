@@ -1,50 +1,75 @@
-export function initMobileNav() {
-  const mobileToggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.site-nav');
-  if (!mobileToggle || !nav) return;
+const CODE_LINES = [
+  'import { createApp } from "react";',
+  'const developer = { name: "Reyhan", stack: ["React", "Node"] };',
+  'export async function fetchData(url) {',
+  '  const res = await fetch(url);',
+  '  return res.json();',
+  '}',
+  'function Portfolio() {',
+  '  return <Layout>{children}</Layout>;',
+  '}',
+  'SELECT * FROM projects WHERE status = "shipped";',
+  'npm run build && npm run deploy',
+  'interface User { id: string; role: string; }',
+  'const theme = { dark: true, accent: "#64ffda" };',
+  'git commit -m "feat: portfolio redesign"',
+  'await prisma.user.findMany({ take: 10 });',
+  'const routes = ["/", "/work", "/contact"];',
+  'export default function Home() {',
+  '  useEffect(() => initAnimations(), []);',
+  '}',
+  'docker compose up -d',
+  'tailwind.config = { content: ["./src/**/*"] };',
+  'try { await deploy(); } catch (e) { log(e); }',
+  'const skills = ["Next.js", "SQL", "Flutter"];',
+  'module.exports = { build, dev, preview };',
+  '// Auckland · Full Stack Developer',
+  'return response.status(200).json(data);',
+  'class ApiClient extends BaseService {}',
+  'pnpm install && pnpm dev',
+  'type Project = { title: string; href: string };',
+];
 
-  mobileToggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('show');
-    mobileToggle.setAttribute('aria-expanded', String(isOpen));
+export function initCodeBackground() {
+  const container = document.getElementById('code-bg');
+  if (!container) return;
+
+  container.innerHTML = CODE_LINES.map(
+    (line, i) =>
+      `<div class="code-line" style="--line-i:${i}; left:${(i * 7) % 85}%; animation-delay:${(i % 12) * 0.4}s">${line}</div>`
+  ).join('');
+}
+
+export function initMobileNav() {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.site-nav');
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('nav-open', open);
   });
 
   nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      nav.classList.remove('show');
-      mobileToggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
     });
   });
 }
 
 export function initScrollReveal() {
   function reveal() {
-    const threshold = window.innerHeight * 0.88;
-
-    document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
-      if (element.classList.contains('reveal-visible')) return;
-      if (element.getBoundingClientRect().top < threshold) {
-        element.classList.add('reveal-visible');
+    const threshold = window.innerHeight * 0.9;
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+      if (el.classList.contains('reveal-visible')) return;
+      if (el.getBoundingClientRect().top < threshold) {
+        el.classList.add('reveal-visible');
       }
-    });
-
-    document.querySelectorAll('.stat-value[data-target]').forEach((el) => {
-      if (el.dataset.animated === 'true') return;
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) return;
-
-      el.dataset.animated = 'true';
-      const target = Number(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      const duration = 1200;
-      const start = performance.now();
-
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = `${Math.round(target * eased)}${suffix}`;
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-
-      requestAnimationFrame(tick);
     });
   }
 
@@ -58,26 +83,36 @@ export function initActiveNav() {
   if (document.body.dataset.page !== 'home') return;
 
   const sections = document.querySelectorAll('section[id]');
-  const links = document.querySelectorAll('.site-nav a[href^="#"]');
+  const links = document.querySelectorAll('.site-nav a');
   const topbar = document.getElementById('topbar');
-  if (!sections.length || !links.length) return;
+  const scrollTop = document.getElementById('scroll-top');
 
   function update() {
-    const scrollY = window.scrollY + 120;
+    const y = window.scrollY + 140;
     let current = 'home';
 
     sections.forEach((section) => {
-      if (scrollY >= section.offsetTop) current = section.id;
+      if (y >= section.offsetTop) current = section.id;
     });
 
     links.forEach((link) => {
-      const href = link.getAttribute('href')?.replace('#', '');
-      link.classList.toggle('active', href === current);
+      const id = link.getAttribute('href')?.replace('#', '');
+      link.classList.toggle('active', id === current);
     });
 
-    topbar?.classList.toggle('topbar-scrolled', window.scrollY > 24);
+    topbar?.classList.toggle('scrolled', window.scrollY > 40);
+    scrollTop?.classList.toggle('visible', window.scrollY > 500);
   }
 
   window.addEventListener('scroll', update, { passive: true });
   update();
+}
+
+export function initScrollTop() {
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }

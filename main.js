@@ -1,105 +1,79 @@
 import { projects, projectFilters } from './projects.js';
-import { stats, skills, experience, education } from './site-data.js';
-import { initMobileNav, initScrollReveal, initActiveNav } from './ui.js';
+import { expertise, experience, education } from './site-data.js';
+import {
+  initCodeBackground,
+  initMobileNav,
+  initScrollReveal,
+  initActiveNav,
+  initScrollTop
+} from './ui.js';
 
+const expertiseGrid = document.querySelector('#expertise-grid');
+const featuredProjectEl = document.querySelector('#featured-project');
 const projectGrid = document.querySelector('#project-grid');
 const projectFiltersEl = document.querySelector('#project-filters');
-const statsGrid = document.querySelector('#stats-grid');
-const skillsGrid = document.querySelector('#skills-grid');
-const experienceTimeline = document.querySelector('#experience-timeline');
-const educationStack = document.querySelector('#education-stack');
+const experienceList = document.querySelector('#experience-list');
+const educationList = document.querySelector('#education-list');
 
 let activeFilter = 'all';
 
-function renderStats() {
-  if (!statsGrid) return;
+function renderExpertise() {
+  if (!expertiseGrid) return;
 
-  statsGrid.innerHTML = stats
-    .map(
-      (stat) => `
-      <article class="stat-card">
-        <div class="stat-icon"><i class="fa-solid ${stat.icon}"></i></div>
-        <p class="stat-value" data-target="${stat.value}" data-suffix="${stat.suffix}">0${stat.suffix}</p>
-        <p class="stat-label">${stat.label}</p>
-      </article>
-    `
-    )
-    .join('');
-}
-
-function renderSkills() {
-  if (!skillsGrid) return;
-
-  skillsGrid.innerHTML = skills
-    .map(
-      (skill) => `
-      <article class="skill-card" style="--skill-level: ${skill.level}%">
-        <div class="skill-card-head">
-          <span class="skill-icon"><i class="${skill.icon}"></i></span>
-          <div>
-            <h3>${skill.name}</h3>
-            <p>${skill.years}</p>
-          </div>
-        </div>
-        <div class="skill-bar" aria-hidden="true"><span></span></div>
-      </article>
-    `
-    )
-    .join('');
-}
-
-function renderEducation() {
-  if (!educationStack) return;
-
-  educationStack.innerHTML = education
+  expertiseGrid.innerHTML = expertise
     .map(
       (item) => `
-      <article class="edu-card">
-        <span class="edu-icon"><i class="${item.icon}"></i></span>
-        <div>
-          <h3>${item.school}</h3>
-          <p class="edu-degree">${item.degree}</p>
-          <p class="edu-meta">${item.period} · ${item.detail}</p>
-        </div>
+      <article class="expertise-card reveal-on-scroll">
+        <h3 class="expertise-title">${item.title}</h3>
+        <p class="expertise-sub mono">${item.subtitle}</p>
+        <p class="expertise-desc">${item.description}</p>
+        <ul class="expertise-tools">
+          ${item.tools.map((t) => `<li>${t}</li>`).join('')}
+        </ul>
       </article>
     `
     )
     .join('');
 }
 
-function renderExperience() {
-  if (!experienceTimeline) return;
+function renderFeatured() {
+  if (!featuredProjectEl) return;
 
-  experienceTimeline.innerHTML = experience
-    .map(
-      (job) => `
-      <article class="timeline-item">
-        <div class="timeline-marker"><i class="${job.icon}"></i></div>
-        <div class="timeline-body">
-          <div class="timeline-head">
-            <div>
-              <h3>${job.role}</h3>
-              <p class="timeline-company">${job.company} · ${job.location}</p>
-            </div>
-            <span class="timeline-period">${job.period}</span>
-          </div>
-          <ul class="timeline-highlights">
-            ${job.highlights.map((h) => `<li>${h}</li>`).join('')}
-          </ul>
-          <div class="tag-row">
-            ${job.tools.map((t) => `<span class="tag">${t}</span>`).join('')}
-          </div>
-        </div>
-      </article>
-    `
-    )
-    .join('');
+  const project = projects.find((p) => p.featured) || projects[0];
+  if (!project) return;
+
+  featuredProjectEl.innerHTML = `
+    <p class="featured-label mono">Featured Project</p>
+    <a class="featured-card" href="${project.link}" ${
+      project.link.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''
+    }>
+      <div class="featured-media">
+        <img src="${project.image}" alt="${project.title}" loading="eager" />
+      </div>
+      <div class="featured-info">
+        <h3>${project.title}</h3>
+        <p>${project.summary}</p>
+        <ul class="tag-list">
+          ${project.tags.map((t) => `<li>${t}</li>`).join('')}
+        </ul>
+        <span class="featured-link mono">View project <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </a>
+  `;
+}
+
+function filterCounts() {
+  return projectFilters.map((f) => {
+    const count =
+      f.id === 'all' ? projects.length : projects.filter((p) => p.category === f.id).length;
+    return { ...f, count };
+  });
 }
 
 function renderFilters() {
   if (!projectFiltersEl) return;
 
-  projectFiltersEl.innerHTML = projectFilters
+  projectFiltersEl.innerHTML = filterCounts()
     .map(
       (filter) => `
       <button
@@ -109,7 +83,8 @@ function renderFilters() {
         role="tab"
         aria-selected="${filter.id === activeFilter}"
       >
-        ${filter.label}
+        <span class="mono">/</span> ${filter.label}
+        <span class="filter-count mono">${String(filter.count).padStart(2, '0')}</span>
       </button>
     `
     )
@@ -119,9 +94,9 @@ function renderFilters() {
     btn.addEventListener('click', () => {
       activeFilter = btn.dataset.filter;
       projectFiltersEl.querySelectorAll('.filter-btn').forEach((b) => {
-        const isActive = b.dataset.filter === activeFilter;
-        b.classList.toggle('active', isActive);
-        b.setAttribute('aria-selected', String(isActive));
+        const on = b.dataset.filter === activeFilter;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', String(on));
       });
       renderProjects();
     });
@@ -134,45 +109,88 @@ function renderProjects() {
   const filtered =
     activeFilter === 'all' ? projects : projects.filter((p) => p.category === activeFilter);
 
-  if (!filtered.length) {
-    projectGrid.innerHTML = `<p class="empty-state">No projects in this category yet.</p>`;
+  const gridProjects = activeFilter === 'all' ? filtered.filter((p) => !p.featured) : filtered;
+
+  if (!gridProjects.length) {
+    projectGrid.innerHTML = `<p class="empty-state mono">// No projects in this category</p>`;
     return;
   }
 
-  projectGrid.innerHTML = filtered
+  projectGrid.innerHTML = gridProjects
     .map(
-      (project, index) => `
-      <article class="project-card reveal-on-scroll" data-category="${project.category}" style="--stagger: ${index * 0.08}s">
-        <div class="project-card-media">
-          <img src="${project.image}" alt="${project.title} preview" loading="lazy" />
-          ${project.featured ? '<span class="featured-badge"><i class="fa-solid fa-star"></i> Featured</span>' : ''}
-          <div class="project-card-overlay"></div>
+      (project, i) => `
+      <a
+        class="work-card reveal-on-scroll${i === 0 && activeFilter === 'all' ? ' work-card--wide' : ''}"
+        href="${project.link}"
+        ${project.link.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}
+      >
+        <div class="work-card-media">
+          <img src="${project.image}" alt="${project.title}" loading="lazy" />
+          <div class="work-card-overlay"></div>
         </div>
-        <div class="project-card-body">
-          <span class="project-meta">${project.categoryLabel}</span>
+        <div class="work-card-body">
+          <span class="work-card-cat mono">${project.categoryLabel}</span>
           <h3>${project.title}</h3>
-          <p>${project.summary}</p>
-          <div class="tag-row">
-            ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}
+          <ul class="tag-list tag-list--sm">
+            ${project.tags.slice(0, 3).map((t) => `<li>${t}</li>`).join('')}
+          </ul>
+        </div>
+      </a>
+    `
+    )
+    .join('');
+}
+
+function renderExperience() {
+  if (!experienceList) return;
+
+  experienceList.innerHTML = experience
+    .map(
+      (job) => `
+      <article class="job-card reveal-on-scroll">
+        <div class="job-header">
+          <div>
+            <h3 class="job-role">${job.role}</h3>
+            <p class="job-company mono">@ ${job.company}</p>
           </div>
+          <span class="job-period mono">${job.period}</span>
         </div>
-        <div class="project-card-footer">
-          <a href="${project.link}" ${project.link.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>
-            View project <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-        </div>
+        <p class="job-location mono">${job.location}</p>
+        <p class="job-desc">${job.description}</p>
+        <ul class="tag-list">
+          ${job.tools.map((t) => `<li>${t}</li>`).join('')}
+        </ul>
       </article>
     `
     )
     .join('');
 }
 
+function renderEducation() {
+  if (!educationList) return;
+
+  educationList.innerHTML = education
+    .map(
+      (item) => `
+      <article class="edu-item">
+        <h4>${item.school}</h4>
+        <p>${item.degree}</p>
+        <p class="mono edu-period">${item.period}</p>
+        <p class="edu-detail">${item.detail}</p>
+      </article>
+    `
+    )
+    .join('');
+}
+
+initCodeBackground();
 initMobileNav();
 initScrollReveal();
 initActiveNav();
-renderStats();
-renderSkills();
-renderEducation();
-renderExperience();
+initScrollTop();
+renderExpertise();
+renderFeatured();
 renderFilters();
 renderProjects();
+renderExperience();
+renderEducation();
