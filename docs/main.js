@@ -48,5 +48,9 @@ function animateOnScroll() {
 
 renderProjects();
 animateOnScroll();
+window.addEventListener('load', animateOnScroll);
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('resize', animateOnScroll);
+
+
+
