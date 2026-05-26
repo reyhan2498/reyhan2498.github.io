@@ -3,143 +3,193 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MegaBliss Story | Reyhan Al-katiri</title>
+    <title>MegaBliss Case Study | Reyhan Al-katiri</title>
     <meta
       name="description"
-      content="The MegaBliss internship and product story of Reyhan Al-katiri, built with care for user experience, backend integration, and performance."
+      content="Full stack internship case study at MegaBliss & MegaTransact — performance, UX, and API integration by Reyhan Al-katiri."
     />
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-Mv6Gj/5x7yBZ1KcON8uTubDQm7QgT0OcXBQ/4hR4axZV2yWvKmld8tT4Ukjw/Nb39oyptLjRI7l+9Kesv23zYQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body data-page="story">
+    <div class="bg-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
     <div class="page-shell">
       <header class="topbar">
-        <a class="brand" href="index.html">Reyhan Al-katiri</a>
+        <a class="brand" href="index.html">
+          <img src="images/logo.jpeg" alt="" class="brand-avatar" width="36" height="36" />
+          <span>Reyhan Al-katiri</span>
+        </a>
         <button class="menu-toggle" aria-label="Toggle navigation">
           <i class="fa-solid fa-bars"></i>
         </button>
         <nav class="site-nav">
           <a href="index.html#home">Home</a>
           <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
           <a href="index.html#projects">Projects</a>
           <a href="index.html#contact">Contact</a>
         </nav>
+        <a class="button ghost small" href="assets/CV.pdf" download>
+          <i class="fa-solid fa-file-arrow-down"></i> CV
+        </a>
       </header>
 
       <main>
         <section class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">Project Story</p>
-            <h1>MegaBliss Worldwide internship product story.</h1>
-            <p>
-              During my internship, I contributed to a booking platform designed to
-              connect travelers and services with cleaner workflows, responsive UI,
-              and scalable backend support.
+            <p class="eyebrow reveal-item delay-1"><i class="fa-solid fa-book-open"></i> Case Study</p>
+            <h1 class="reveal-item delay-2">
+              MegaBliss &amp; MegaTransact
+              <span class="gradient-text">performance &amp; UX</span>
+            </h1>
+            <p class="hero-lead reveal-item delay-3">
+              Remote full stack internship (Nov 2023 – Apr 2024) optimising web platforms for
+              payment-related services — integrating React/Next.js with APIs and SQL-backed data.
             </p>
-            <div class="hero-actions">
-              <a class="button primary" href="index.html#projects">View Work</a>
-              <a class="button secondary" href="#details">Read the Story</a>
+            <div class="hero-badges reveal-item delay-4">
+              <span><i class="fa-solid fa-chart-line"></i> +40% performance</span>
+              <span><i class="fa-solid fa-bolt"></i> −25% load time</span>
+              <span><i class="fa-solid fa-users"></i> −20% bounce rate</span>
+            </div>
+            <div class="hero-actions reveal-item delay-5">
+              <a class="button primary" href="index.html#projects"><i class="fa-solid fa-arrow-left"></i> All projects</a>
+              <a class="button secondary" href="index.html#contact">Contact me</a>
             </div>
           </div>
-          <div class="hero-visual">
+          <div class="hero-visual reveal-item delay-6">
             <div class="hero-card">
-              <img src="images/pic06.png" alt="MegaBliss product case study visual" />
+              <img src="images/pic06.png" alt="MegaBliss platform interface" />
             </div>
           </div>
         </section>
 
-        <section class="about" id="details">
+        <section class="stats-bar reveal-on-scroll">
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <p class="stat-value">40%</p>
+              <p class="stat-label">Website performance uplift</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+              <p class="stat-value">25%</p>
+              <p class="stat-label">Faster page loads</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+              <p class="stat-value">20%</p>
+              <p class="stat-label">Lower bounce rate</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
+              <p class="stat-value">6 mo</p>
+              <p class="stat-label">Internship duration</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="about reveal-on-scroll" id="details">
           <div class="section-header">
-            <p class="eyebrow">My Role</p>
-            <h2>Building a professional booking experience from front-end to backend.</h2>
+            <p class="eyebrow"><i class="fa-solid fa-user-gear"></i> My role</p>
+            <h2>Full stack support for customer-facing platforms.</h2>
           </div>
           <div class="about-grid">
-            <div>
+            <div class="about-copy">
               <p>
-                I worked closely with a product team to turn feature definitions into a
-                usable web experience. My responsibilities included frontend design,
-                responsive layout, and integration with backend services.
+                MegaBliss and MegaTransact focus on online platforms and payment-related services.
+                I integrated front-end components with backend services, worked with REST APIs and SQL
+                databases, and fixed UI/UX issues that affected engagement.
               </p>
               <p>
-                The project required strong collaboration, clean UI patterns, and a
-                focus on speed so users could book quickly, view available packages,
-                and complete checkout without friction.
+                The work required close attention to load times, reliable data flow, and responsive
+                layouts using Next.js, React, Tailwind CSS, and Chakra UI.
               </p>
             </div>
-            <div class="skill-cards">
-              <div class="skill-card">
-                <span>User experience</span>
-              </div>
-              <div class="skill-card">
-                <span>Responsive interfaces</span>
-              </div>
-              <div class="skill-card">
-                <span>Backend integration</span>
-              </div>
-              <div class="skill-card">
-                <span>Performance focus</span>
-              </div>
+            <div class="skills-grid" style="grid-template-columns: 1fr">
+              <article class="skill-card">
+                <div class="skill-card-head">
+                  <span class="skill-icon"><i class="fa-brands fa-react"></i></span>
+                  <div><h3>Front-end integration</h3><p>Next.js · React · Chakra UI</p></div>
+                </div>
+              </article>
+              <article class="skill-card">
+                <div class="skill-card-head">
+                  <span class="skill-icon"><i class="fa-solid fa-plug"></i></span>
+                  <div><h3>APIs &amp; data</h3><p>REST · SQL · performance tuning</p></div>
+                </div>
+              </article>
+              <article class="skill-card">
+                <div class="skill-card-head">
+                  <span class="skill-icon"><i class="fa-solid fa-gauge-high"></i></span>
+                  <div><h3>UX &amp; reliability</h3><p>Load time · bounce rate · engagement</p></div>
+                </div>
+              </article>
             </div>
           </div>
         </section>
 
-        <section class="projects">
+        <section class="projects reveal-on-scroll">
           <div class="section-header">
-            <p class="eyebrow">Outcome</p>
-            <h2>Deliverables and impact from the internship</h2>
+            <p class="eyebrow"><i class="fa-solid fa-trophy"></i> Outcomes</p>
+            <h2>What shipped and what improved.</h2>
           </div>
           <div class="grid">
-            <article class="project-card">
-              <img src="images/pic02.jpg" alt="Booking platform interface" />
+            <article class="project-card reveal-on-scroll">
+              <div class="project-card-media">
+                <img src="images/pic02.jpg" alt="Booking and service UI" loading="lazy" />
+              </div>
               <div class="project-card-body">
                 <span class="project-meta">Interface</span>
-                <h3>Clear booking flows</h3>
-                <p>
-                  Created intuitive navigation and booking panels that reduce
-                  confusion and improve conversion.
-                </p>
+                <h3>Clearer user journeys</h3>
+                <p>Responsive layouts and navigation that reduced friction for business users.</p>
               </div>
             </article>
-            <article class="project-card">
-              <img src="images/pic05.png" alt="Analytics and backend" />
+            <article class="project-card reveal-on-scroll">
+              <div class="project-card-media">
+                <img src="images/pic05.png" alt="Backend and data flows" loading="lazy" />
+              </div>
               <div class="project-card-body">
                 <span class="project-meta">Backend</span>
-                <h3>Reliable data handling</h3>
-                <p>
-                  Supported backend workflows and data consistency for service
-                  availability, booking details, and user sessions.
-                </p>
+                <h3>Reliable integrations</h3>
+                <p>API and database work that kept data consistent and pages fast under load.</p>
               </div>
             </article>
           </div>
         </section>
 
-        <section class="cta-panel">
+        <section class="cta-panel reveal-on-scroll">
           <div>
-            <p class="eyebrow">Let's collaborate</p>
-            <h2>Need an interactive website or app with strong UX and clean code?</h2>
+            <p class="eyebrow">Next step</p>
+            <h2>Interested in similar full stack or performance work?</h2>
           </div>
-          <a class="button primary" href="mailto:reyhan2498@gmail.com">Contact Me</a>
+          <a class="button primary" href="mailto:reyhan2498@gmail.com">
+            <i class="fa-solid fa-paper-plane"></i> Email me
+          </a>
         </section>
       </main>
 
       <footer class="footer">
-        <p>Designed and built by Reyhan Al-katiri.</p>
+        <p><i class="fa-solid fa-code"></i> Designed &amp; built by Reyhan Al-katiri</p>
       </footer>
     </div>
 
-    <script type="module" src="main.js"></script>
+    <script type="module" src="story.js"></script>
   </body>
 </html>

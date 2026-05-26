@@ -1,47 +1,77 @@
 export const projects = [
   {
-    title: 'MegaBliss Website',
-    category: 'Full Stack',
+    title: 'MegaBliss Platform',
+    category: 'fullstack',
+    categoryLabel: 'Full Stack',
     summary:
-      'A dynamic web platform built during an internship with Java backend integration and modern frontend polish.',
+      'Internship project improving booking UX, API integration, and performance — 40% faster, 20% lower bounce rate.',
     link: 'story.html',
-    image: 'images/pic01.jpg',
-    tags: ['Next.js', 'Java', 'Responsive']
-  },
-  {
-    title: 'Data Cleaning',
-    category: 'SQL',
-    summary:
-      'A data transformation workflow that sanitizes and prepares large datasets for reporting and analysis.',
-    link: 'https://github.com/reyhan2498/PortfolioProjects/blob/main/Data%20Cleaning%20Queries.sql',
-    image: 'images/pic02.jpg',
-    tags: ['SQL', 'ETL', 'Data Quality']
+    image: 'images/pic06.png',
+    tags: ['Next.js', 'React', 'REST APIs', 'SQL'],
+    featured: true
   },
   {
     title: 'SHARC_Runners',
-    category: 'Unity Game',
+    category: 'game',
+    categoryLabel: 'Unity Game',
     summary:
-      'A collaborative 2D multiplayer racing game developed with C# in Unity, focusing on smooth gameplay and teamwork.',
+      'AUT capstone: collaborative 2D multiplayer platformer built in Unity with C# — smooth gameplay and team coordination.',
     link: 'https://github.com/reyhan2498/SHARC_Runners',
     image: 'images/pic03.jpg',
-    tags: ['Unity', 'C#', 'Game Design']
-  },
-  {
-    title: 'GUI Tic-Tac-Toe',
-    category: 'Game UI',
-    summary:
-      'A polished interface for a classic Tic-Tac-Toe game built with HTML, CSS, and JavaScript.',
-    link: 'https://github.com/Ratchet7x5/GUI-TicTacToe',
-    image: 'images/pic04.jpg',
-    tags: ['JavaScript', 'UI', 'Interactive']
+    tags: ['Unity', 'C#', 'Multiplayer'],
+    featured: true
   },
   {
     title: 'SEPER-APP',
-    category: 'Research Tool',
+    category: 'tools',
+    categoryLabel: 'Research Tool',
     summary:
-      'A developer tool designed to surface evidence-based software engineering practices from academic research.',
+      'Decision-support app surfacing evidence-based software engineering practices from academic research.',
     link: 'https://github.com/reyhan2498/SEPER-App',
     image: 'images/pic05.png',
-    tags: ['Research', 'Tools', 'Developer Experience']
+    tags: ['Next.js', 'Tailwind', 'Research'],
+    featured: true
+  },
+  {
+    title: 'Data Cleaning Pipeline',
+    category: 'data',
+    categoryLabel: 'SQL / Data',
+    summary:
+      'SQL workflows that sanitize and prepare large datasets for reporting, analysis, and downstream dashboards.',
+    link: 'https://github.com/reyhan2498/PortfolioProjects/blob/main/Data%20Cleaning%20Queries.sql',
+    image: 'images/pic02.jpg',
+    tags: ['SQL', 'ETL', 'MySQL'],
+    featured: false
+  },
+  {
+    title: 'GUI Tic-Tac-Toe',
+    category: 'frontend',
+    categoryLabel: 'Interactive UI',
+    summary:
+      'Polished browser game with responsive layout, animations, and clean JavaScript game logic.',
+    link: 'https://github.com/Ratchet7x5/GUI-TicTacToe',
+    image: 'images/pic04.jpg',
+    tags: ['JavaScript', 'HTML', 'CSS'],
+    featured: false
+  },
+  {
+    title: 'Client Web Apps (DevForge)',
+    category: 'fullstack',
+    categoryLabel: 'Freelance',
+    summary:
+      'Freelance builds for Auckland clients — React/Next.js sites and a Flutter mobile app from planning to production.',
+    link: 'https://github.com/reyhan2498',
+    image: 'images/pic01.jpg',
+    tags: ['React', 'Flutter', 'Tailwind'],
+    featured: false
   }
+];
+
+export const projectFilters = [
+  { id: 'all', label: 'All' },
+  { id: 'fullstack', label: 'Full Stack' },
+  { id: 'game', label: 'Games' },
+  { id: 'data', label: 'Data' },
+  { id: 'tools', label: 'Tools' },
+  { id: 'frontend', label: 'Frontend' }
 ];

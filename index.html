@@ -3,161 +3,232 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reyhan Al-katiri | Portfolio</title>
+    <title>Reyhan Al-katiri | Full Stack Developer</title>
     <meta
       name="description"
-      content="Portfolio of Reyhan Al-katiri — full stack developer with JavaScript, SQL, Unity, and polished web experiences."
+      content="Reyhan Al-katiri — Full Stack Developer in Auckland, NZ. React, Next.js, Node.js, SQL. Portfolio of web apps, games, and data projects."
     />
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-Mv6Gj/5x7yBZ1KcON8uTubDQm7QgT0OcXBQ/4hR4axZV2yWvKmld8tT4Ukjw/Nb39oyptLjRI7l+9Kesv23zYQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body data-page="home">
+    <div class="bg-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
     <div class="page-shell">
-      <header class="topbar">
-        <a class="brand" href="#home">Reyhan Al-katiri</a>
-        <button class="menu-toggle" aria-label="Toggle navigation">
+      <header class="topbar" id="topbar">
+        <a class="brand" href="#home">
+          <img src="images/logo.jpeg" alt="" class="brand-avatar" width="36" height="36" />
+          <span>Reyhan Al-katiri</span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Primary">
           <a href="#home">Home</a>
           <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Change site style">
-          <i class="fa-solid fa-palette"></i>
-          <span>Style</span>
-        </button>
+        <div class="topbar-actions">
+          <a class="button ghost small" href="assets/CV.pdf" download>
+            <i class="fa-solid fa-file-arrow-down"></i> CV
+          </a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Change site style">
+            <i class="fa-solid fa-palette"></i>
+            <span>Ocean</span>
+          </button>
+        </div>
       </header>
 
       <main>
         <section class="hero" id="home">
           <div class="hero-copy">
-            <p class="eyebrow reveal-item delay-1">Hi, I'm Reyhan</p>
-            <h1 class="reveal-item delay-2">I design modern digital products that feel premium and perform reliably.</h1>
-            <p class="reveal-item delay-3">
-              I combine clean frontend interfaces, data-driven logic, and scalable backend architecture
-              to build websites and apps that users love.
+            <p class="eyebrow reveal-item delay-1">
+              <i class="fa-solid fa-location-dot"></i> Auckland, New Zealand · NZ Citizen
+            </p>
+            <h1 class="reveal-item delay-2">
+              Full Stack Developer building
+              <span class="gradient-text">reliable web products</span>
+            </h1>
+            <p class="hero-lead reveal-item delay-3">
+              Computer Science graduate building practical full-stack products — from React/Next.js
+              frontends to Node.js APIs and SQL-backed systems.
             </p>
             <div class="hero-badges reveal-item delay-4">
-              <span>Web apps</span>
-              <span>Product design</span>
-              <span>Data systems</span>
+              <span><i class="fa-brands fa-react"></i> React / Next.js</span>
+              <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+              <span><i class="fa-solid fa-database"></i> SQL</span>
+              <span><i class="fa-brands fa-git-alt"></i> Git</span>
             </div>
             <div class="hero-actions reveal-item delay-5">
-              <a class="button primary" href="#projects">Explore Projects</a>
-              <a class="button secondary" href="story.html">Discover My Story</a>
+              <a class="button primary" href="#projects">
+                <i class="fa-solid fa-folder-open"></i> View Projects
+              </a>
+              <a class="button secondary" href="assets/CV.pdf" download>
+                <i class="fa-solid fa-download"></i> Download CV
+              </a>
+              <a class="button secondary" href="story.html">
+                <i class="fa-solid fa-book-open"></i> Case Study
+              </a>
             </div>
             <div class="social-row reveal-item delay-6">
               <a href="https://github.com/reyhan2498" target="_blank" rel="noreferrer">
-                <img class="social-icon" src="images/github.svg" alt="GitHub" />
-                GitHub
+                <i class="fa-brands fa-github"></i> GitHub
               </a>
-              <a href="https://www.linkedin.com/in/reyhan-al-katiri" target="_blank" rel="noreferrer">
-                <img class="social-icon" src="images/linkedin.svg" alt="LinkedIn" />
-                LinkedIn
+              <a href="https://www.linkedin.com/in/reyhan-al-katiri/" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="mailto:reyhan2498@gmail.com">
+                <i class="fa-solid fa-envelope"></i> Email
               </a>
             </div>
           </div>
           <div class="hero-visual reveal-item delay-7">
-            <div class="hero-card">
-              <img src="images/background.jpg" alt="Modern product dashboard preview" />
+            <div class="hero-profile-card">
+              <div class="profile-ring"></div>
+              <img src="images/logo.jpeg" alt="Reyhan Al-katiri" class="profile-photo" />
+              <div class="profile-badge">
+                <i class="fa-solid fa-circle-check"></i> Open to opportunities
+              </div>
+            </div>
+            <div class="hero-card hero-card-stack">
+              <div class="code-window">
+                <div class="code-window-bar">
+                  <span></span><span></span><span></span>
+                </div>
+                <pre><code><span class="code-kw">const</span> developer = {
+  name: <span class="code-str">"Reyhan"</span>,
+  stack: [<span class="code-str">"React"</span>, <span class="code-str">"Next.js"</span>, <span class="code-str">"Node"</span>],
+  focus: <span class="code-str">"full-stack delivery"</span>
+};</code></pre>
+              </div>
+              <img src="images/background.jpg" alt="Web application interface preview" class="hero-preview-img" />
             </div>
           </div>
         </section>
 
-        <section class="about" id="about">
+        <section class="stats-bar reveal-on-scroll" aria-label="Impact highlights">
+          <div class="stats-grid" id="stats-grid"></div>
+        </section>
+
+        <section class="about reveal-on-scroll" id="about">
           <div class="section-header">
-            <p class="eyebrow">About Me</p>
-            <h2>Crafting polished products with practical engineering.</h2>
+            <p class="eyebrow"><i class="fa-solid fa-user"></i> About</p>
+            <h2>Practical engineer. Curious builder. Team player.</h2>
           </div>
           <div class="about-grid">
+            <div class="about-copy">
+              <p>
+                I'm a Computer Science graduate from Auckland University of Technology with hands-on
+                full-stack experience across internships and freelance work. I enjoy turning real problems
+                into polished software — responsive UIs, solid APIs, and databases that scale with the product.
+              </p>
+              <p>
+                From MegaBliss performance wins to Blue Prism automation at ADHB, I've shipped in fast-moving
+                teams and independently for clients. I'm always learning — whether it's Flutter for mobile or
+                the next framework that fits the problem.
+              </p>
+              <ul class="about-highlights">
+                <li><i class="fa-solid fa-check"></i> AUT — Software Development major, Web minor</li>
+                <li><i class="fa-solid fa-check"></i> Internships at System 7, MegaBliss, ADHB</li>
+                <li><i class="fa-solid fa-check"></i> Freelance via DevForge (React, Next.js, Flutter)</li>
+              </ul>
+            </div>
+            <div class="education-stack" id="education-stack"></div>
+          </div>
+        </section>
+
+        <section class="experience reveal-on-scroll" id="experience">
+          <div class="section-header">
+            <p class="eyebrow"><i class="fa-solid fa-briefcase"></i> Experience</p>
+            <h2>Where I've built and shipped.</h2>
+          </div>
+          <div class="timeline" id="experience-timeline"></div>
+        </section>
+
+        <section class="skills reveal-on-scroll" id="skills">
+          <div class="section-header">
+            <p class="eyebrow"><i class="fa-solid fa-layer-group"></i> Skills</p>
+            <h2>Technologies I use day to day.</h2>
+          </div>
+          <div class="skills-grid" id="skills-grid"></div>
+        </section>
+
+        <section class="projects reveal-on-scroll" id="projects">
+          <div class="section-header section-header-row">
             <div>
-              <p>
-                I build web experiences that are easy to use, fast to load, and
-                easy to maintain. My work blends frontend polish with backend
-                logic, so each project looks great and performs reliably.
-              </p>
-              <p>
-                I have experience with JavaScript, SQL, Unity game projects, and
-                data-driven tools. I love collaborating, iterating quickly, and
-                shipping work that looks professional.
-              </p>
+              <p class="eyebrow"><i class="fa-solid fa-rocket"></i> Projects</p>
+              <h2>Work you can explore in one click.</h2>
             </div>
-            <div class="skill-cards">
-              <div class="skill-card">
-                <span>JavaScript</span>
-              </div>
-              <div class="skill-card">
-                <span>React & Web</span>
-              </div>
-              <div class="skill-card">
-                <span>SQL & Data</span>
-              </div>
-              <div class="skill-card">
-                <span>Unity & Game Logic</span>
-              </div>
-            </div>
+            <div class="project-filters" id="project-filters" role="tablist" aria-label="Filter projects"></div>
           </div>
+          <div class="grid" id="project-grid"></div>
         </section>
 
-        <section class="projects" id="projects">
-          <div class="section-header">
-            <p class="eyebrow">Featured Work</p>
-            <h2>Your next project starts with ideas like these.</h2>
-          </div>
-          <div class="grid" id="project-grid">
-            <!-- Project cards are rendered by main.js -->
-          </div>
-        </section>
-
-        <section class="cta-panel">
+        <section class="cta-panel reveal-on-scroll">
           <div>
-            <p class="eyebrow">Want a stronger portfolio?</p>
-            <h2>Ask me about polished UI, backend integration, and clean product flow.</h2>
+            <p class="eyebrow">Let's collaborate</p>
+            <h2>Need a full-stack developer for your next web app or product refresh?</h2>
           </div>
-          <a class="button primary" href="mailto:reyhan2498@gmail.com">Email Me</a>
+          <a class="button primary" href="mailto:reyhan2498@gmail.com">
+            <i class="fa-solid fa-paper-plane"></i> Get in touch
+          </a>
         </section>
 
-        <section class="contact" id="contact">
+        <section class="contact reveal-on-scroll" id="contact">
           <div class="section-header">
-            <p class="eyebrow">Contact</p>
-            <h2>Let’s build something meaningful together.</h2>
+            <p class="eyebrow"><i class="fa-solid fa-comments"></i> Contact</p>
+            <h2>Let's build something meaningful.</h2>
           </div>
           <div class="contact-grid">
-            <div class="contact-card">
+            <a class="contact-card contact-card-link" href="mailto:reyhan2498@gmail.com">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
               <p>Email</p>
-              <a href="mailto:reyhan2498@gmail.com">reyhan2498@gmail.com</a>
-            </div>
-            <div class="contact-card">
-              <p>Choose a network</p>
-              <div class="social-grid">
-                <a href="https://github.com/reyhan2498" target="_blank" rel="noreferrer"
-                  ><i class="fa-brands fa-github"></i> GitHub</a
-                >
-                <a href="https://www.linkedin.com/in/reyhan-al-katiri" target="_blank" rel="noreferrer"
-                  ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
-                >
-              </div>
-            </div>
+              <strong>reyhan2498@gmail.com</strong>
+            </a>
+            <a class="contact-card contact-card-link" href="tel:+64291221484">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <p>Phone</p>
+              <strong>029 122 1484</strong>
+            </a>
+            <a class="contact-card contact-card-link" href="https://www.linkedin.com/in/reyhan-al-katiri/" target="_blank" rel="noreferrer">
+              <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <p>LinkedIn</p>
+              <strong>reyhan-al-katiri</strong>
+            </a>
+            <a class="contact-card contact-card-link" href="assets/CV.pdf" download>
+              <div class="contact-icon"><i class="fa-solid fa-file-pdf"></i></div>
+              <p>Resume</p>
+              <strong>Download CV (PDF)</strong>
+            </a>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <p>Designed and built by Reyhan Al-katiri.</p>
+        <p>
+          <i class="fa-solid fa-code"></i> Designed &amp; built by Reyhan Al-katiri
+          <span class="footer-dot">·</span>
+          <a href="https://github.com/reyhan2498" target="_blank" rel="noreferrer">GitHub</a>
+        </p>
       </footer>
     </div>
 

@@ -5,10 +5,14 @@ This repository contains the static portfolio website for `reyhan2498.github.io`
 ## Structure
 
 - `index.html` — Main portfolio landing page
-- `story.html` — Project story / case study page
-- `style.css` — Global stylesheet for typography, layout, and responsive design
-- `main.js` — JavaScript for the mobile menu, scroll reveal animation, and project rendering
-- `projects.js` — Data-driven project card definitions
+- `story.html` — MegaBliss case study page
+- `style.css` — Global stylesheet, animations, and responsive layout
+- `main.js` — Renders projects, skills, experience, and education on the home page
+- `ui.js` — Shared mobile menu, scroll reveal, and active nav
+- `story.js` — Lightweight script for the case study page only
+- `projects.js` — Project card data and filter categories
+- `site-data.js` — Skills, experience, education, and stats (aligned with CV)
+- `assets/CV.pdf` — Downloadable resume
 - `images/` — Static image assets used across the site
 - `docs/` — Deployment copy for GitHub Pages
 
@@ -34,10 +38,10 @@ This repository is set up for GitHub Pages with the `docs/` folder as the publis
 
 ## Updating the site
 
+Edit files in the repository root, then copy them into `docs/` before pushing (HTML, CSS, JS, and `assets/`). Images live in `images/` at the root and in `docs/images/` for deployment.
+
 - Add or update project entries in `projects.js`.
-- Keep image references inside `images/`.
-- Update navigation, content, or layout in `index.html`, `story.html`, and `style.css`.
-- Copy updated site files into `docs/` before pushing if your Pages workflow is configured from `docs/`.
+- Update CV content in `site-data.js` and static copy in `index.html` / `story.html`.
 
 ## Notes
 
