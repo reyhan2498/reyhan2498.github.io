@@ -64,21 +64,17 @@
 
     <main class="main-content">
       <section class="hero" id="home">
-        <p class="hero-greeting reveal-item">Hi, my name is</p>
-        <h1 class="hero-name reveal-item delay-1">
+        <h1 class="hero-name reveal-item">
           Reyhan
-          <span class="hero-lastname">Al-katiri.</span>
+          <span class="hero-lastname">Al-katiri</span>
         </h1>
-        <h2 class="hero-title reveal-item delay-2">I build things for the web.</h2>
-        <p class="hero-desc reveal-item delay-3">
-          I'm a <span class="text-accent">Full Stack Developer</span> based in Auckland, New Zealand — Computer Science
-          graduate with experience across React, Next.js, Node.js, SQL, and shipping real products through internships
-          and freelance work.
+        <p class="hero-skills reveal-item delay-1">
+          Full Stack Developer <span class="hero-skills-sep">•</span> RPA Developer <span class="hero-skills-sep">•</span> SQL
         </p>
-        <div class="hero-cta reveal-item delay-4">
+        <div class="hero-cta reveal-item delay-2">
           <a class="btn-primary" href="#work">Check out my work</a>
         </div>
-        <a class="scroll-hint reveal-item delay-5" href="#expertise" aria-label="Scroll down">
+        <a class="scroll-hint reveal-item delay-3" href="#expertise" aria-label="Scroll down">
           <span class="scroll-hint-label">scroll</span>
           <span class="scroll-hint-line"></span>
         </a>
@@ -105,15 +101,10 @@
         </header>
         <p class="section-intro reveal-on-scroll">
           Full-stack web apps, games, and data projects — from AUT coursework and internships to freelance client
-          delivery. Filter by category or explore the featured build below.
+          delivery. Explore the featured build and recent work below.
         </p>
 
         <div class="featured-project reveal-on-scroll" id="featured-project"></div>
-
-        <div class="work-toolbar reveal-on-scroll">
-          <span class="filter-label">Filter by</span>
-          <div class="project-filters" id="project-filters" role="tablist"></div>
-        </div>
 
         <div class="work-grid" id="project-grid"></div>
       </section>
@@ -167,6 +158,21 @@
         </div>
       </section>
     </main>
+
+    <div class="case-modal" id="case-modal" hidden aria-hidden="true">
+      <div class="case-modal__backdrop" aria-hidden="true"></div>
+      <div
+        class="case-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="case-modal-title"
+      >
+        <button type="button" class="case-modal__close" aria-label="Close case study">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="case-modal__body" id="case-modal-body"></div>
+      </div>
+    </div>
 
     <footer class="footer">
       <p>

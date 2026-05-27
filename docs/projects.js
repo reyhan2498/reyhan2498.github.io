@@ -5,7 +5,7 @@ export const projects = [
     categoryLabel: 'Full Stack',
     summary:
       'Internship project — booking UX, API integration, 40% performance uplift and 20% lower bounce rate.',
-    link: 'story.html',
+    caseStudy: 'megabliss',
     image: 'images/pic06.png',
     tags: ['Next.js', 'React', 'REST APIs', 'SQL'],
     featured: true
@@ -18,6 +18,7 @@ export const projects = [
       'AUT capstone: 2D multiplayer platformer in Unity with C# — teamwork and smooth gameplay.',
     link: 'https://github.com/reyhan2498/SHARC_Runners',
     image: 'images/pic02.jpg',
+    imagePosition: 'center top',
     tags: ['Unity', 'C#', 'Multiplayer'],
     featured: false
   },
@@ -62,13 +63,4 @@ export const projects = [
     tags: ['React', 'Flutter', 'Tailwind'],
     featured: false
   }
-];
-
-export const projectFilters = [
-  { id: 'all', label: 'All' },
-  { id: 'fullstack', label: 'Full Stack' },
-  { id: 'game', label: 'Games' },
-  { id: 'data', label: 'Data' },
-  { id: 'tools', label: 'Tools' },
-  { id: 'frontend', label: 'Frontend' }
 ];
