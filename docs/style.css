@@ -11,8 +11,8 @@
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --header-h: 70px;
   --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
-  --max-w: 1000px;
-  --side-pad: clamp(24px, 5vw, 80px);
+  --max-w: 1280px;
+  --side-pad: clamp(24px, 6vw, 100px);
 }
 
 * {
@@ -306,6 +306,11 @@ a {
   letter-spacing: -0.02em;
 }
 
+.hero-lastname {
+  display: block;
+  color: var(--green);
+}
+
 .hero-title {
   margin: 8px 0 0;
   font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -316,7 +321,7 @@ a {
 }
 
 .hero-desc {
-  max-width: 540px;
+  max-width: 680px;
   margin: 28px 0 0;
   font-size: 1.05rem;
 }
@@ -407,12 +412,12 @@ a {
 .heading-line {
   flex: 1;
   height: 1px;
-  max-width: 300px;
+  max-width: 420px;
   background: var(--navy-lighter);
 }
 
 .section-intro {
-  max-width: 640px;
+  max-width: 760px;
   margin: -24px 0 48px;
   font-size: 1.05rem;
 }
@@ -480,7 +485,7 @@ a {
 
 .quote p {
   margin: 0 auto;
-  max-width: 520px;
+  max-width: 640px;
   font-size: 1.25rem;
   font-style: italic;
   color: var(--slate-light);
@@ -835,7 +840,7 @@ a {
 }
 
 .contact-box {
-  max-width: 600px;
+  max-width: 720px;
   text-align: center;
   margin: 0 auto;
   padding: 56px 40px;
