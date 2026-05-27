@@ -124,29 +124,42 @@ export function initCustomCursor() {
   const cursor = document.getElementById('custom-cursor');
   if (!cursor) return;
 
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!finePointer || reducedMotion) return;
-
   const dot = cursor.querySelector('.cursor-dot');
   const ring = cursor.querySelector('.cursor-ring');
   if (!dot || !ring) return;
 
-  document.body.classList.add('has-custom-cursor');
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+  const anyHover = window.matchMedia('(any-hover: hover)').matches;
+  const isDesktopWidth = window.innerWidth >= 768;
+  const hasMouse = canHover || hasFinePointer || anyHover || isDesktopWidth;
 
-  let mouseX = 0;
-  let mouseY = 0;
-  let ringX = 0;
-  let ringY = 0;
+  if (!hasMouse) {
+    cursor.remove();
+    return;
+  }
+
+  document.body.classList.add('has-custom-cursor');
+  cursor.classList.remove('is-hidden');
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
   let rafId = null;
+  let visible = false;
+
+  function setPosition(el, x, y) {
+    el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+  }
 
   function animateRing() {
-    ringX += (mouseX - ringX) * 0.18;
-    ringY += (mouseY - ringY) * 0.18;
-    ring.style.left = `${ringX}px`;
-    ring.style.top = `${ringY}px`;
+    const ease = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0.2;
+    ringX += (mouseX - ringX) * ease;
+    ringY += (mouseY - ringY) * ease;
+    setPosition(ring, ringX, ringY);
 
-    if (Math.hypot(mouseX - ringX, mouseY - ringY) > 0.4) {
+    if (Math.hypot(mouseX - ringX, mouseY - ringY) > 0.5) {
       rafId = requestAnimationFrame(animateRing);
     } else {
       rafId = null;
@@ -156,21 +169,30 @@ export function initCustomCursor() {
   function moveCursor(x, y) {
     mouseX = x;
     mouseY = y;
-    dot.style.left = `${x}px`;
-    dot.style.top = `${y}px`;
+    setPosition(dot, x, y);
+    if (!visible) {
+      visible = true;
+      cursor.classList.remove('is-hidden');
+      setPosition(ring, x, y);
+      ringX = x;
+      ringY = y;
+    }
     if (!rafId) rafId = requestAnimationFrame(animateRing);
   }
 
-  document.addEventListener(
+  window.addEventListener(
     'mousemove',
-    (e) => {
-      cursor.classList.remove('is-hidden');
-      moveCursor(e.clientX, e.clientY);
-    },
+    (e) => moveCursor(e.clientX, e.clientY),
     { passive: true }
   );
 
-  document.addEventListener('mouseleave', () => cursor.classList.add('is-hidden'));
+  document.documentElement.addEventListener('mouseout', (e) => {
+    if (!e.relatedTarget) cursor.classList.add('is-hidden');
+  });
+
+  document.documentElement.addEventListener('mouseover', () => {
+    if (visible) cursor.classList.remove('is-hidden');
+  });
 
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(CURSOR_INTERACTIVE)) {
