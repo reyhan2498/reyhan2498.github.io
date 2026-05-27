@@ -6,6 +6,8 @@ function renderCaseStudy(id) {
   const study = caseStudies[id];
   if (!study) return '';
 
+  const hasSingleVideoHighlight = study.highlights.length === 1 && study.highlights[0].video;
+
   return `
     <header class="case-modal__header">
       <p class="case-modal__label mono">Case Study</p>
@@ -31,6 +33,40 @@ function renderCaseStudy(id) {
         .join('')}
     </div>
 
+    ${hasSingleVideoHighlight ? `
+    <div class="case-modal__overview-preview-grid">
+      <div class="case-modal__preview-side">
+        <div class="story-grid case-modal__highlights">
+          ${study.highlights
+            .map(
+              (item) => {
+                return `
+            <article class="case-modal__highlight case-modal__highlight--video">
+              <div class="case-modal__highlight-media">
+                <video controls preload="metadata" poster="${item.image}">
+                  <source src="${item.video}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="case-modal__highlight-body">
+                <span class="case-modal__highlight-cat mono text-accent">${item.category}</span>
+                <h4>${item.title}</h4>
+              </div>
+            </article>
+          `;
+              })
+            .join('')}
+        </div>
+      </div>
+
+      <div class="case-modal__section-divider"></div>
+
+      <section class="case-modal__section case-modal__overview-side">
+        <h3 class="case-modal__heading"><span class="mono text-accent">//</span> Overview</h3>
+        ${study.overview.map((p) => `<p class="case-modal__text">${p}</p>`).join('')}
+      </section>
+    </div>
+    ` : `
     <section class="case-modal__section">
       <h3 class="case-modal__heading"><span class="mono text-accent">//</span> Overview</h3>
       ${study.overview.map((p) => `<p class="case-modal__text">${p}</p>`).join('')}
@@ -43,30 +79,31 @@ function renderCaseStudy(id) {
             const hideImage = item.category === 'Platform' || item.category === 'Backend';
             const hasVideo = item.video;
             return `
-        <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}">
-          ${!hideImage ? `
-          <div class="case-modal__highlight-media">
-            ${hasVideo ? `
-            <video controls preload="metadata" poster="${item.image}">
-              <source src="${item.video}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>` : `
-            <img
-              src="${item.image}"
-              alt="${item.title}"
-              loading="lazy"
-              ${item.imagePosition ? `style="object-position: ${item.imagePosition}"` : ''}
-            />` }
-          </div>` : ''}
-          <div class="case-modal__highlight-body">
-            <span class="case-modal__highlight-cat mono text-accent">${item.category}</span>
-            <h4>${item.title}</h4>
-          </div>
-        </article>
-      `;
+          <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}">
+            ${!hideImage ? `
+            <div class="case-modal__highlight-media">
+              ${hasVideo ? `
+              <video controls preload="metadata" poster="${item.image}">
+                <source src="${item.video}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>` : `
+              <img
+                src="${item.image}"
+                alt="${item.title}"
+                loading="lazy"
+                ${item.imagePosition ? `style="object-position: ${item.imagePosition}"` : ''}
+              />` }
+            </div>` : ''}
+            <div class="case-modal__highlight-body">
+              <span class="case-modal__highlight-cat mono text-accent">${item.category}</span>
+              <h4>${item.title}</h4>
+            </div>
+          </article>
+        `;
           })
         .join('')}
     </div>
+    `}
   `;
 }
 
@@ -121,6 +158,9 @@ export function initCaseStudyModal() {
   });
 
   document.addEventListener('click', (e) => {
+    // Don't open modal if clicking on a link inside a case study card
+    if (e.target.closest('.work-card-link')) return;
+
     const trigger = e.target.closest('[data-case-study]');
     if (!trigger) return;
     e.preventDefault();

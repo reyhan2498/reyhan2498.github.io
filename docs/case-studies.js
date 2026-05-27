@@ -50,13 +50,8 @@ export const caseStudies = {
       {
         title: 'App Preview & Demo',
         category: 'Preview',
-        video: 'videos/dailystreaks-demo.mp4',
+        video: 'assets/DailyStreaks_Recording.mp4',
         image: 'images/dailystreaks-preview.jpg'
-      },
-      {
-        title: 'Local data persistence & reminders',
-        category: 'Backend',
-        image: 'images/pic03.jpg'
       }
     ],
     tags: ['Flutter', 'Dart', 'Firebase', 'Mobile Development']

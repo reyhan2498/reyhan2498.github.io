@@ -23,6 +23,18 @@ export const projects = [
     featured: false
   },
   {
+    title: 'DailyStreaks',
+    category: 'mobile',
+    categoryLabel: 'Flutter App',
+    summary:
+      'Habit-tracking mobile app built with Flutter — build streaks, track progress, and achieve your goals with daily reminders.',
+    caseStudy: 'dailystreaks',
+    link: 'https://github.com/reyhan2498/DailyStreak',
+    image: 'images/dailystreaks-preview.jpg',
+    tags: ['Flutter', 'Dart', 'Firebase'],
+    featured: false
+  },
+  {
     title: 'SEPER-APP',
     category: 'tools',
     categoryLabel: 'Research Tool',
@@ -41,18 +53,6 @@ export const projects = [
     link: 'https://github.com/reyhan2498/PortfolioProjects/blob/main/Data%20Cleaning%20Queries.sql',
     image: 'images/pic03.jpg',
     tags: ['SQL', 'ETL', 'MySQL'],
-    featured: false
-  },
-  {
-    title: 'DailyStreaks',
-    category: 'mobile',
-    categoryLabel: 'Flutter App',
-    summary:
-      'Habit-tracking mobile app built with Flutter — build streaks, track progress, and achieve your goals with daily reminders.',
-    caseStudy: 'dailystreaks',
-    link: 'https://github.com/reyhan2498/DailyStreak',
-    image: 'images/pic01.jpg',
-    tags: ['Flutter', 'Dart', 'Firebase'],
     featured: false
   },
   {

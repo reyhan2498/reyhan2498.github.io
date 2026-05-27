@@ -74,12 +74,19 @@ function renderProjects() {
   projectGrid.innerHTML = gridProjects
     .map(
       (project, i) => {
-        const cardTag = project.caseStudy ? 'button' : 'a';
-        const cardAttrs = project.caseStudy
+        const hasCaseStudy = !!project.caseStudy;
+        const hasLink = !!project.link;
+
+        const cardTag = hasCaseStudy ? 'button' : 'a';
+        const cardAttrs = hasCaseStudy
           ? `type="button" class="work-card reveal-on-scroll${i === 0 ? ' work-card--wide' : ''}" data-case-study="${project.caseStudy}"`
           : `class="work-card reveal-on-scroll${i === 0 ? ' work-card--wide' : ''}" href="${project.link}"${
               project.link.startsWith('http') ? ' target="_blank" rel="noreferrer"' : ''
             }`;
+
+        const viewProjectLink = (hasCaseStudy && hasLink)
+          ? `<a href="${project.link}" target="_blank" rel="noreferrer" class="work-card-link mono">View Project <i class="fa-solid fa-external-link-alt"></i></a>`
+          : '';
 
         return `
       <${cardTag} ${cardAttrs}>
@@ -99,6 +106,7 @@ function renderProjects() {
           <ul class="tag-list tag-list--sm">
             ${project.tags.slice(0, 3).map((t) => `<li>${t}</li>`).join('')}
           </ul>
+          ${viewProjectLink}
         </div>
       </${cardTag}>
     `;
