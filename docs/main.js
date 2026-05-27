@@ -5,7 +5,8 @@ import {
   initMobileNav,
   initScrollReveal,
   initActiveNav,
-  initScrollTop
+  initScrollTop,
+  initCustomCursor
 } from './ui.js';
 import { initCaseStudyModal } from './case-study-modal.js';
 
@@ -153,6 +154,7 @@ initMobileNav();
 initScrollReveal();
 initActiveNav();
 initScrollTop();
+initCustomCursor();
 initCaseStudyModal();
 renderExpertise();
 renderFeatured();

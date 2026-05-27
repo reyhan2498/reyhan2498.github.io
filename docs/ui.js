@@ -116,3 +116,74 @@ export function initScrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+const CURSOR_INTERACTIVE =
+  'a, button, [data-case-study], .btn-primary, .btn-resume, .filter-btn, input, textarea, select, label[for]';
+
+export function initCustomCursor() {
+  const cursor = document.getElementById('custom-cursor');
+  if (!cursor) return;
+
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!finePointer || reducedMotion) return;
+
+  const dot = cursor.querySelector('.cursor-dot');
+  const ring = cursor.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
+
+  document.body.classList.add('has-custom-cursor');
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let ringX = 0;
+  let ringY = 0;
+  let rafId = null;
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.left = `${ringX}px`;
+    ring.style.top = `${ringY}px`;
+
+    if (Math.hypot(mouseX - ringX, mouseY - ringY) > 0.4) {
+      rafId = requestAnimationFrame(animateRing);
+    } else {
+      rafId = null;
+    }
+  }
+
+  function moveCursor(x, y) {
+    mouseX = x;
+    mouseY = y;
+    dot.style.left = `${x}px`;
+    dot.style.top = `${y}px`;
+    if (!rafId) rafId = requestAnimationFrame(animateRing);
+  }
+
+  document.addEventListener(
+    'mousemove',
+    (e) => {
+      cursor.classList.remove('is-hidden');
+      moveCursor(e.clientX, e.clientY);
+    },
+    { passive: true }
+  );
+
+  document.addEventListener('mouseleave', () => cursor.classList.add('is-hidden'));
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(CURSOR_INTERACTIVE)) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const from = e.target.closest(CURSOR_INTERACTIVE);
+    const to = e.relatedTarget?.closest?.(CURSOR_INTERACTIVE);
+    if (from && !to) document.body.classList.remove('cursor-hover');
+  });
+
+  document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+  document.addEventListener('mouseup', () => document.body.classList.remove('cursor-click'));
+}
