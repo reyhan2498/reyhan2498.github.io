@@ -17,7 +17,7 @@ export const projects = [
     summary:
       'AUT capstone: 2D multiplayer platformer in Unity with C# — teamwork and smooth gameplay.',
     link: 'https://github.com/reyhan2498/SHARC_Runners',
-    image: 'images/pic03.jpg',
+    image: 'images/pic02.jpg',
     tags: ['Unity', 'C#', 'Multiplayer'],
     featured: false
   },
@@ -38,7 +38,7 @@ export const projects = [
     categoryLabel: 'SQL / Data',
     summary: 'SQL workflows sanitizing large datasets for reporting and analysis.',
     link: 'https://github.com/reyhan2498/PortfolioProjects/blob/main/Data%20Cleaning%20Queries.sql',
-    image: 'images/pic02.jpg',
+    image: 'images/pic03.jpg',
     tags: ['SQL', 'ETL', 'MySQL'],
     featured: false
   },
