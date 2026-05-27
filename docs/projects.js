@@ -23,6 +23,17 @@ export const projects = [
     featured: false
   },
   {
+    title: 'Carter Creative Studio',
+    category: 'frontend',
+    categoryLabel: 'Portfolio Website',
+    summary:
+      'Dynamic portfolio website for graphic designer Christopher Carter, featuring interactive carousels and smooth animations.',
+    link: 'https://github.com/reyhan2498/carter-creative-studio',
+    image: 'images/student-portfolio.png',
+    tags: ['React', 'Swiper.js', 'Framer Motion', 'CSS'],
+    featured: false
+  },
+  {
     title: 'DailyStreaks',
     category: 'mobile',
     categoryLabel: 'Flutter App',
@@ -64,5 +75,5 @@ export const projects = [
     image: 'images/pic04.jpg',
     tags: ['JavaScript', 'HTML', 'CSS'],
     featured: false
-  }
+  },
 ];
