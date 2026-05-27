@@ -26,7 +26,7 @@ export const experience = [
   {
     company: 'DevForge',
     role: 'Freelance Software Developer',
-    period: 'Mar 2025 – Dec 2025',
+    period: 'Mar 2025 – Present',
     location: 'Auckland',
     description:
       'Design and develop modern web and mobile apps for clients — React/Next.js frontends, Flutter mobile, end-to-end delivery.',

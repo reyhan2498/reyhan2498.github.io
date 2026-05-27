@@ -11,6 +11,17 @@ export const projects = [
     featured: true
   },
   {
+    title: 'Dog Guy',
+    category: 'fullstack',
+    categoryLabel: 'Website Fix & Optimization',
+    summary:
+      'Fixed email deliverability issues and improved website layout for a local business. Migrated email system, configured DNS settings, and optimized mobile responsiveness.',
+    caseStudy: 'dogguy',
+    image: 'images/dogguylogo.png',
+    tags: ['Wix', 'Google Workspace', 'DNS', 'Web Development'],
+    featured: false
+  },
+  {
     title: 'SHARC_Runners',
     category: 'game',
     categoryLabel: 'Unity Game',

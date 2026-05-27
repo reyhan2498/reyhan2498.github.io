@@ -55,5 +55,45 @@ export const caseStudies = {
       }
     ],
     tags: ['Flutter', 'Dart', 'Firebase', 'Mobile Development']
+  },
+  dogguy: {
+    title: 'Dog Guy',
+    subtitle: 'Website fix & optimization',
+    period: 'Freelance project',
+    intro:
+      'Helped a local business resolve critical email deliverability issues and improve their website\'s user experience across all devices.',
+    stats: [
+      { value: '100%', label: 'Email deliverability' },
+      { value: 'Mobile', label: 'Optimized' },
+      { value: 'DNS', label: 'Configured' },
+      { value: '1', label: 'Happy client' }
+    ],
+    overview: [
+      'The Dog Guy website, built on Wix, was experiencing critical email communication issues. Messages sent through the website chat were being replied to from an incorrect email address, causing them to be blocked by Gmail and other email providers. This was severely impacting the business\'s ability to communicate with customers.',
+      'I resolved the issue by migrating the email system to a more reliable setup and properly configuring DNS and email settings. Additionally, I improved the website layout for better navigation and optimized the mobile version by adjusting spacing, resizing images, and improving how sections stack on smaller screens.'
+    ],
+    highlights: [
+      {
+        title: 'Before - Homepage',
+        category: 'Before',
+        image: 'images/Dogguy01.png'
+      },
+      {
+        title: 'Before - Mobile View',
+        category: 'Before',
+        image: 'images/dogguy02.png'
+      },
+      {
+        title: 'After - Homepage',
+        category: 'After',
+        image: 'images/dogguy03.png'
+      },
+      {
+        title: 'After - Mobile View',
+        category: 'After',
+        image: 'images/dogguy04.png'
+      }
+    ],
+    tags: ['Wix', 'Google Workspace', 'DNS', 'Web Development']
   }
 };

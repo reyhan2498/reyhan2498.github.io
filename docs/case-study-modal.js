@@ -79,7 +79,7 @@ function renderCaseStudy(id) {
             const hideImage = item.category === 'Platform' || item.category === 'Backend';
             const hasVideo = item.video;
             return `
-          <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}">
+          <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}${item.category === 'Before' ? ' case-modal__highlight--before' : ''}${item.category === 'After' ? ' case-modal__highlight--after' : ''}">
             ${!hideImage ? `
             <div class="case-modal__highlight-media">
               ${hasVideo ? `
