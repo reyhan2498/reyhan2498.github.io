@@ -92,7 +92,7 @@ body.has-custom-cursor.cursor-click .cursor-ring {
   border-color: var(--slate-light);
 }
 
-@media (hover: hover), (pointer: fine), (any-hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   body.has-custom-cursor,
   body.has-custom-cursor * {
     cursor: none !important;

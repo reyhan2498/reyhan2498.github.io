@@ -128,13 +128,16 @@ export function initCustomCursor() {
   const ring = cursor.querySelector('.cursor-ring');
   if (!dot || !ring) return;
 
-  const canHover = window.matchMedia('(hover: hover)').matches;
-  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-  const anyHover = window.matchMedia('(any-hover: hover)').matches;
-  const isDesktopWidth = window.innerWidth >= 768;
-  const hasMouse = canHover || hasFinePointer || anyHover || isDesktopWidth;
+  // Check for touch capability - if device has coarse pointer (touch), disable cursor
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+  const hasTouchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-  if (!hasMouse) {
+  // Only enable custom cursor on devices with fine pointer (mouse) and no touch
+  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+  const canHover = window.matchMedia('(hover: hover)').matches;
+
+  // Disable on touch devices or if no fine pointer support
+  if (isTouchDevice || hasTouchSupport || !hasFinePointer || !canHover) {
     cursor.remove();
     return;
   }
