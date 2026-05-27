@@ -44,6 +44,18 @@ export const projects = [
     featured: false
   },
   {
+    title: 'DailyStreaks',
+    category: 'mobile',
+    categoryLabel: 'Flutter App',
+    summary:
+      'Habit-tracking mobile app built with Flutter — build streaks, track progress, and achieve your goals with daily reminders.',
+    caseStudy: 'dailystreaks',
+    link: 'https://github.com/reyhan2498/DailyStreak',
+    image: 'images/pic01.jpg',
+    tags: ['Flutter', 'Dart', 'Firebase'],
+    featured: false
+  },
+  {
     title: 'GUI Tic-Tac-Toe',
     category: 'frontend',
     categoryLabel: 'Interactive UI',
@@ -51,16 +63,6 @@ export const projects = [
     link: 'https://github.com/Ratchet7x5/GUI-TicTacToe',
     image: 'images/pic04.jpg',
     tags: ['JavaScript', 'HTML', 'CSS'],
-    featured: false
-  },
-  {
-    title: 'DevForge Client Apps',
-    category: 'fullstack',
-    categoryLabel: 'Freelance',
-    summary: 'Freelance React/Next.js sites and Flutter mobile apps for Auckland clients.',
-    link: 'https://github.com/reyhan2498',
-    image: 'images/pic01.jpg',
-    tags: ['React', 'Flutter', 'Tailwind'],
     featured: false
   }
 ];

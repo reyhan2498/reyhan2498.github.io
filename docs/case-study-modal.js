@@ -39,23 +39,32 @@ function renderCaseStudy(id) {
     <div class="story-grid case-modal__highlights">
       ${study.highlights
         .map(
-          (item) => `
-        <article class="case-modal__highlight">
+          (item) => {
+            const hideImage = item.category === 'Platform' || item.category === 'Backend';
+            const hasVideo = item.video;
+            return `
+        <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}">
+          ${!hideImage ? `
           <div class="case-modal__highlight-media">
+            ${hasVideo ? `
+            <video controls preload="metadata" poster="${item.image}">
+              <source src="${item.video}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>` : `
             <img
               src="${item.image}"
               alt="${item.title}"
               loading="lazy"
               ${item.imagePosition ? `style="object-position: ${item.imagePosition}"` : ''}
-            />
-          </div>
+            />` }
+          </div>` : ''}
           <div class="case-modal__highlight-body">
-            <span class="mono text-accent">${item.category}</span>
+            <span class="case-modal__highlight-cat mono text-accent">${item.category}</span>
             <h4>${item.title}</h4>
           </div>
         </article>
-      `
-        )
+      `;
+          })
         .join('')}
     </div>
   `;
