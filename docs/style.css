@@ -558,8 +558,28 @@ body[data-page="home"] .scroll-hint {
   transform: translateY(-6px);
 }
 
+.expertise-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.expertise-icon {
+  font-size: 1.5rem;
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.expertise-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .expertise-title {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 1.35rem;
   color: var(--white);
 }

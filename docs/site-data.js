@@ -4,21 +4,24 @@ export const expertise = [
     subtitle: 'JavaScript · Java · Git',
     description:
       'Experienced building maintainable applications with modern JS, OOP in Java, and solid version control workflows.',
-    tools: ['JavaScript', 'Java', 'Git', 'REST APIs']
+    tools: ['JavaScript', 'Java', 'Git', 'REST APIs'],
+    icon: 'fa-code'
   },
   {
-    title: 'Full Stack Dev',
+    title: 'Full-Stack Development',
     subtitle: 'React · Next.js',
     description:
       'Passionate about UI/UX. Building responsive, accessible interfaces with React, Next.js, Tailwind CSS, and modern CSS.',
-    tools: ['React', 'Next.js', 'Tailwind', 'HTML/CSS']
+    tools: ['React', 'Next.js', 'Tailwind', 'HTML/CSS'],
+    icon: 'fa-layer-group'
   },
   {
-    title: 'RPA Dev',
+    title: 'Robotic Process Automation Dev',
     subtitle: 'Blue Prism · SQL',
     description:
       'Delivered efficient automation solutions using Blue Prism for workflow orchestration, data validation, and process reliability.',
-    tools: ['Blue Prism', 'SQL', 'Process Mapping', 'Automation']
+    tools: ['Blue Prism', 'SQL', 'Process Mapping', 'Automation'],
+    icon: 'fa-robot'
   }
 ];
 
@@ -51,8 +54,8 @@ export const experience = [
     tools: ['Next.js', 'React', 'Chakra UI', 'Tailwind', 'SQL']
   },
   {
-    company: 'Auckland District Health Board',
-    role: 'RPA Intern',
+    company: 'Health New Zealand | Te Whatu Ora',
+    role: 'Robotic Process Automation (RPA) Intern',
     period: 'Jan 2022 – Oct 2022',
     location: 'Auckland',
     description:

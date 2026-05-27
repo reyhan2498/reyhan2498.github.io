@@ -21,16 +21,27 @@ function renderExpertise() {
 
   expertiseGrid.innerHTML = expertise
     .map(
-      (item) => `
+      (item) => {
+        const iconHtml = item.icon
+          ? (item.icon.startsWith('fa-')
+              ? `<i class="fa-solid ${item.icon} expertise-icon"></i>`
+              : `<img src="${item.icon}" alt="${item.title} icon" class="expertise-icon-img" />`)
+          : '';
+
+        return `
       <article class="expertise-card reveal-on-scroll">
-        <h3 class="expertise-title">${item.title}</h3>
+        <div class="expertise-header">
+          ${iconHtml}
+          <h3 class="expertise-title">${item.title}</h3>
+        </div>
         <p class="expertise-sub mono">${item.subtitle}</p>
         <p class="expertise-desc">${item.description}</p>
         <ul class="expertise-tools">
           ${item.tools.map((t) => `<li>${t}</li>`).join('')}
         </ul>
       </article>
-    `
+    `;
+      }
     )
     .join('');
 }

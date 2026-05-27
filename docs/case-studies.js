@@ -79,7 +79,7 @@ export const caseStudies = {
         image: 'images/Dogguy01.png'
       },
       {
-        title: 'Before - Mobile View',
+        title: 'Before - Footer',
         category: 'Before',
         image: 'images/dogguy02.png'
       },
@@ -89,7 +89,7 @@ export const caseStudies = {
         image: 'images/dogguy03.png'
       },
       {
-        title: 'After - Mobile View',
+        title: 'After - Footer',
         category: 'After',
         image: 'images/dogguy04.png'
       }
