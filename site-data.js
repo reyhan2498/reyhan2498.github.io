@@ -7,18 +7,18 @@ export const expertise = [
     tools: ['JavaScript', 'Java', 'Git', 'REST APIs']
   },
   {
-    title: 'Frontend Dev',
+    title: 'Full Stack Dev',
     subtitle: 'React · Next.js',
     description:
       'Passionate about UI/UX. Building responsive, accessible interfaces with React, Next.js, Tailwind CSS, and modern CSS.',
     tools: ['React', 'Next.js', 'Tailwind', 'HTML/CSS']
   },
   {
-    title: 'Backend & Data',
-    subtitle: 'Node.js · SQL',
+    title: 'RPA Dev',
+    subtitle: 'Blue Prism · SQL',
     description:
-      'API integration, server-side logic, and database design with Node.js, MySQL/SQL Server, and performance-focused delivery.',
-    tools: ['Node.js', 'SQL', 'PHP', 'Flutter']
+      'Delivered efficient automation solutions using Blue Prism for workflow orchestration, data validation, and process reliability.',
+    tools: ['Blue Prism', 'SQL', 'Process Mapping', 'Automation']
   }
 ];
 
