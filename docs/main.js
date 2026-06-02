@@ -143,7 +143,7 @@ function renderProjectSlider() {
     return `
       <article class="project-slide">
         <${cardTag} ${cardAttrs}>
-          <img src="${project.image}" alt="${project.title}" loading="lazy" />
+          <img src="${project.image}" alt="${project.title}" loading="lazy" ${project.imagePosition ? `style="object-position: ${project.imagePosition}"` : ''} />
           <div class="project-slide-body">
             <span class="mono">${project.categoryLabel}</span>
             <h3>${project.title}</h3>
