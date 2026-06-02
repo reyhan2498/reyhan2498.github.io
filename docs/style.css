@@ -778,10 +778,6 @@ body[data-page="home"] .scroll-hint {
 .project-slider-container {
   margin: 0 auto 48px;
   padding: 22px;
-  background: rgba(16, 29, 48, 0.95);
-  border-radius: 14px;
-  border: 1px solid rgba(100, 255, 218, 0.12);
-  backdrop-filter: blur(10px);
 }
 
 .project-slider-wrap {
@@ -809,15 +805,18 @@ body[data-page="home"] .scroll-hint {
   background: var(--navy-light);
   color: var(--slate);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
   display: flex;
   flex-direction: column;
+  height: 320px;
+  position: relative;
 }
 
 .project-slide:hover {
   transform: scale(1.05) translateY(-8px);
   box-shadow: 0 12px 32px rgba(100, 255, 218, 0.15);
+  z-index: 10;
 }
 
 .project-slide-card {
@@ -828,19 +827,23 @@ body[data-page="home"] .scroll-hint {
   width: 100%;
   height: 100%;
   background: var(--navy-light);
+  position: relative;
 }
 
 .project-slide-card:hover .project-slide-body {
   opacity: 1;
+  visibility: visible;
 }
 
 .project-slide img {
   width: 100%;
-  height: 220px;
+  height: 320px;
   object-fit: cover;
   display: block;
   background: var(--navy);
   transition: filter 0.3s var(--ease);
+  flex-shrink: 0;
+  border-radius: 12px;
 }
 
 .project-slide:hover img {
@@ -848,20 +851,51 @@ body[data-page="home"] .scroll-hint {
 }
 
 .project-slide-body {
-  padding: 20px 18px 18px;
-  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  background: var(--navy-light);
+  background: linear-gradient(180deg, rgba(10, 25, 47, 0.7) 0%, rgba(10, 25, 47, 0.95) 60%);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+  pointer-events: none;
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+.project-slide:hover .project-slide-body {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .project-slide p {
-  transition: opacity 0.3s var(--ease), font-size 0.3s var(--ease);
+  transition: opacity 0.3s var(--ease);
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
 .project-slide:hover p {
   opacity: 1;
-  font-size: 1rem;
+}
+
+.project-slide .mono {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+}
+
+.project-slide h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
 }
 
 

@@ -17,7 +17,7 @@ export const projects = [
     summary:
       'Fixed email deliverability issues and improved website layout for a local business. Migrated email system, configured DNS settings, and optimized mobile responsiveness.',
     caseStudy: 'dogguy',
-    image: 'images/dogguylogo.png',
+    image: 'images/Dogguy01.png',
     imagePosition: 'center center',
     tags: ['Wix', 'Google Workspace', 'DNS', 'Web Development'],
     featured: false
