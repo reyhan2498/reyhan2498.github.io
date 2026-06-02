@@ -126,6 +126,105 @@ function renderProjects() {
     .join('');
 }
 
+/* Render a horizontal project slider and expose simple controls */
+function renderProjectSlider() {
+  const sliderTrack = document.querySelector('#project-slider-track');
+  if (!sliderTrack) return;
+
+  const slides = projects.map((project) => {
+    return `
+      <article class="project-slide">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" />
+        <div class="project-slide-body">
+          <span class="mono">${project.categoryLabel}</span>
+          <h3>${project.title}</h3>
+          <p>${project.summary}</p>
+          <ul class="tag-list tag-list--sm">
+            ${project.tags.slice(0, 3).map((t) => `<li>${t}</li>`).join('')}
+          </ul>
+        </div>
+      </article>
+    `;
+  });
+
+  sliderTrack.innerHTML = slides.join('');
+}
+
+function initProjectSlider() {
+  const track = document.querySelector('#project-slider-track');
+  const prevBtn = document.querySelector('.slider-prev');
+  const nextBtn = document.querySelector('.slider-next');
+  const dotsWrap = document.querySelector('#project-slider-dots');
+  if (!track) return;
+
+  let pageIndex = 0;
+
+  function slidesToShow() {
+    const w = window.innerWidth;
+    if (w >= 1100) return 3;
+    if (w >= 700) return 2;
+    return 1;
+  }
+
+  function pageCount() {
+    const show = slidesToShow();
+    return Math.max(1, Math.ceil(track.children.length / show));
+  }
+
+  function renderDots() {
+    if (!dotsWrap) return;
+    const pages = pageCount();
+    dotsWrap.innerHTML = Array.from({ length: pages })
+      .map((_, i) => `<button data-dot="${i}" aria-label="Go to page ${i + 1}"></button>`)
+      .join('');
+    return Array.from(document.querySelectorAll('#project-slider-dots button'));
+  }
+
+  let dots = renderDots();
+
+  function update() {
+    const show = slidesToShow();
+    const slideEl = track.querySelector('.project-slide');
+    const slideW = slideEl ? slideEl.getBoundingClientRect().width + 18 : 320;
+    const pages = pageCount();
+    const maxPage = pages - 1;
+
+    if (pageIndex < 0) pageIndex = 0;
+    if (pageIndex > maxPage) pageIndex = maxPage;
+
+    const offset = -(pageIndex * show * slideW);
+    track.style.transform = `translateX(${offset}px)`;
+
+    dots.forEach((d) => d.classList.remove('active'));
+    const activeDot = dots[Math.min(pageIndex, dots.length - 1)];
+    if (activeDot) activeDot.classList.add('active');
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { pageIndex = Math.max(0, pageIndex - 1); update(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { pageIndex = pageIndex + 1; update(); });
+
+  function attachDotListeners() {
+    dots.forEach((d) => {
+      d.addEventListener('click', (e) => {
+        const target = e.currentTarget;
+        const i = Number(target.getAttribute('data-dot')) || 0;
+        pageIndex = i;
+        update();
+      });
+    });
+  }
+
+  attachDotListeners();
+
+  window.addEventListener('resize', () => {
+    dots = renderDots();
+    attachDotListeners();
+    setTimeout(update, 120);
+  });
+
+  setTimeout(update, 60);
+}
+
 function renderExperience() {
   if (!experienceList) return;
 
@@ -178,5 +277,7 @@ initCaseStudyModal();
 renderExpertise();
 renderFeatured();
 renderProjects();
+renderProjectSlider();
+initProjectSlider();
 renderExperience();
 renderEducation();
