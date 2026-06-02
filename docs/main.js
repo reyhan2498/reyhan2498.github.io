@@ -131,18 +131,28 @@ function renderProjectSlider() {
   const sliderTrack = document.querySelector('#project-slider-track');
   if (!sliderTrack) return;
 
-  const slides = projects.map((project) => {
+  const sliderProjects = projects.filter((project) => !project.featured);
+  if (!sliderProjects.length) return;
+
+  const slides = sliderProjects.map((project) => {
+    const cardTag = project.caseStudy ? 'button' : 'a';
+    const cardAttrs = project.caseStudy
+      ? `type="button" class="project-slide-card" data-case-study="${project.caseStudy}"`
+      : `class="project-slide-card" href="${project.link}" target="_blank" rel="noreferrer"`;
+
     return `
       <article class="project-slide">
-        <img src="${project.image}" alt="${project.title}" loading="lazy" />
-        <div class="project-slide-body">
-          <span class="mono">${project.categoryLabel}</span>
-          <h3>${project.title}</h3>
-          <p>${project.summary}</p>
-          <ul class="tag-list tag-list--sm">
-            ${project.tags.slice(0, 3).map((t) => `<li>${t}</li>`).join('')}
-          </ul>
-        </div>
+        <${cardTag} ${cardAttrs}>
+          <img src="${project.image}" alt="${project.title}" loading="lazy" />
+          <div class="project-slide-body">
+            <span class="mono">${project.categoryLabel}</span>
+            <h3>${project.title}</h3>
+            <p>${project.summary}</p>
+            <ul class="tag-list tag-list--sm">
+              ${project.tags.slice(0, 3).map((t) => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+        </${cardTag}>
       </article>
     `;
   });
@@ -151,13 +161,16 @@ function renderProjectSlider() {
 }
 
 function initProjectSlider() {
+  const slider = document.querySelector('#project-slider');
   const track = document.querySelector('#project-slider-track');
   const prevBtn = document.querySelector('.slider-prev');
   const nextBtn = document.querySelector('.slider-next');
   const dotsWrap = document.querySelector('#project-slider-dots');
-  if (!track) return;
+  if (!slider || !track) return;
 
   let pageIndex = 0;
+  let startX = null;
+  let dragDelta = 0;
 
   function slidesToShow() {
     const w = window.innerWidth;
@@ -172,7 +185,7 @@ function initProjectSlider() {
   }
 
   function renderDots() {
-    if (!dotsWrap) return;
+    if (!dotsWrap) return [];
     const pages = pageCount();
     dotsWrap.innerHTML = Array.from({ length: pages })
       .map((_, i) => `<button data-dot="${i}" aria-label="Go to page ${i + 1}"></button>`)
@@ -183,17 +196,14 @@ function initProjectSlider() {
   let dots = renderDots();
 
   function update() {
-    const show = slidesToShow();
-    const slideEl = track.querySelector('.project-slide');
-    const slideW = slideEl ? slideEl.getBoundingClientRect().width + 18 : 320;
     const pages = pageCount();
     const maxPage = pages - 1;
+    const sliderWidth = slider.clientWidth;
 
     if (pageIndex < 0) pageIndex = 0;
     if (pageIndex > maxPage) pageIndex = maxPage;
 
-    const offset = -(pageIndex * show * slideW);
-    track.style.transform = `translateX(${offset}px)`;
+    track.style.transform = `translateX(${-pageIndex * sliderWidth}px)`;
 
     dots.forEach((d) => d.classList.remove('active'));
     const activeDot = dots[Math.min(pageIndex, dots.length - 1)];
@@ -201,7 +211,7 @@ function initProjectSlider() {
   }
 
   if (prevBtn) prevBtn.addEventListener('click', () => { pageIndex = Math.max(0, pageIndex - 1); update(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { pageIndex = pageIndex + 1; update(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { pageIndex = Math.min(pageCount() - 1, pageIndex + 1); update(); });
 
   function attachDotListeners() {
     dots.forEach((d) => {
@@ -215,6 +225,38 @@ function initProjectSlider() {
   }
 
   attachDotListeners();
+
+  function handlePointerDown(e) {
+    const interactive = e.target.closest('a, button');
+    if (interactive) return;
+    startX = e.clientX;
+    dragDelta = 0;
+    slider.setPointerCapture(e.pointerId);
+  }
+
+  function handlePointerMove(e) {
+    if (startX === null) return;
+    dragDelta = e.clientX - startX;
+  }
+
+  function handlePointerUp() {
+    if (startX === null) return;
+    const threshold = 48;
+    if (dragDelta < -threshold) {
+      pageIndex = Math.min(pageCount() - 1, pageIndex + 1);
+      update();
+    } else if (dragDelta > threshold) {
+      pageIndex = Math.max(0, pageIndex - 1);
+      update();
+    }
+    startX = null;
+    dragDelta = 0;
+  }
+
+  slider.addEventListener('pointerdown', handlePointerDown);
+  slider.addEventListener('pointermove', handlePointerMove);
+  slider.addEventListener('pointerup', handlePointerUp);
+  slider.addEventListener('pointercancel', handlePointerUp);
 
   window.addEventListener('resize', () => {
     dots = renderDots();
@@ -276,7 +318,6 @@ initCustomCursor();
 initCaseStudyModal();
 renderExpertise();
 renderFeatured();
-renderProjects();
 renderProjectSlider();
 initProjectSlider();
 renderExperience();
