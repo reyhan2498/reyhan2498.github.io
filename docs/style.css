@@ -383,6 +383,24 @@ body[data-page="home"] .hero {
   color: var(--slate-light);
   line-height: 1.05;
   letter-spacing: -0.03em;
+  display: inline-block;
+  
+  /* Makes the transition buttery smooth */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Heavy impact hover effect */
+.hero-name:hover {
+  color: #ffffff; /* Pops to pure white */
+  
+  /* Lifts the text up and forward */
+  transform: translateY(-4px) scale(1.02);
+  
+  /* Stacked shadows create a massive 3D glow depth */
+  text-shadow: 
+    2px 2px 0px #3b82f6,                  /* Sharp bright blue layer */
+    4px 4px 0px #1d4ed8,                  /* Darker blue layer */
+    0px 10px 20px rgba(59, 130, 246, 0.5); /* Soft ambient glow */
 }
 
 body[data-page="home"] .hero-name {
