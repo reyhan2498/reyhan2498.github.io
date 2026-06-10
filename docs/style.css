@@ -378,7 +378,7 @@ body[data-page="home"] .hero {
 
 .hero-name {
   margin: 0;
-  font-size: clamp(3.25rem, 10vw, 5.5rem);
+  font-size: xlclamp(3.5rem, 12vw, 7.5rem);
   font-weight: 700;
   color: var(--slate-light);
   line-height: 1.05;
