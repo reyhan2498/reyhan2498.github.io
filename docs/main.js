@@ -95,10 +95,6 @@ function renderProjects() {
               project.link.startsWith('http') ? ' target="_blank" rel="noreferrer"' : ''
             }`;
 
-        const viewProjectLink = (hasCaseStudy && hasLink)
-          ? `<a href="${project.link}" target="_blank" rel="noreferrer" class="work-card-link mono">View Project <i class="fa-solid fa-external-link-alt"></i></a>`
-          : '';
-
         return `
       <${cardTag} ${cardAttrs}>
         <div class="work-card-media">
@@ -109,6 +105,9 @@ function renderProjects() {
             ${project.imagePosition ? `style="object-position: ${project.imagePosition}"` : ''}
           />
           <div class="work-card-overlay"></div>
+          ${hasCaseStudy && hasLink
+            ? `<a href="${project.link}" target="_blank" rel="noreferrer" class="work-card-media-link mono">Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
+            : ''}
         </div>
         <div class="work-card-body">
           <span class="work-card-cat mono">${project.categoryLabel}</span>
@@ -117,7 +116,6 @@ function renderProjects() {
           <ul class="tag-list tag-list--sm">
             ${project.tags.slice(0, 3).map((t) => `<li>${t}</li>`).join('')}
           </ul>
-          ${viewProjectLink}
         </div>
       </${cardTag}>
     `;

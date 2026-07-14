@@ -23,6 +23,19 @@ export const projects = [
     featured: false
   },
   {
+    title: 'Oasis Threads Landing Page',
+    category: 'frontend',
+    categoryLabel: 'E-Commerce Landing Page',
+    summary:
+      'Polished mobile-first landing page concept for a minimalist fashion brand with responsive storytelling and conversion-focused UI.',
+    caseStudy: 'oasisthreads',
+    link: 'https://oasis-threads-landing-page.vercel.app',
+    image: 'images/oasis-threads-landing-page.svg',
+    imagePosition: 'center center',
+    tags: ['HTML', 'CSS', 'Responsive UI', 'Vercel'],
+    featured: false
+  },
+  {
     title: 'DailyStreaks',
     category: 'mobile',
     categoryLabel: 'Flutter App',

@@ -95,5 +95,35 @@ export const caseStudies = {
       }
     ],
     tags: ['Wix', 'Google Workspace', 'DNS', 'Web Development']
+  },
+  oasisthreads: {
+    title: 'Oasis Threads Landing Page',
+    subtitle: 'E-commerce frontend mockup',
+    period: 'AI-assisted concept build · 2025',
+    intro:
+      'A polished, responsive landing page concept for a minimalist fashion brand that combines premium storytelling, clean layout hierarchy, and conversion-focused UI.',
+    stats: [
+      { value: 'Mobile-first', label: 'Responsive UI' },
+      { value: '100%', label: 'Fluid layout' },
+      { value: 'Vercel', label: 'Live deployment' },
+      { value: 'AI-assisted', label: 'Workflow' }
+    ],
+    overview: [
+      'Oasis Threads is a polished frontend mockup designed to reflect a premium fashion brand experience. The page combines minimalist typography, warm earth tones, editorial-style imagery, and clear product storytelling to create a calm yet modern first impression.',
+      'The experience was built as a responsive landing page with a strong focus on readability, pacing, and conversion-driven UI. The project was prototyped and refined using AI-assisted workflows and structured CSS to accelerate layout development while keeping the visual polish high.'
+    ],
+    highlights: [
+      {
+        title: 'Hero experience',
+        category: 'Design',
+        image: 'images/oasis-threads-hero.svg'
+      },
+      {
+        title: 'Product storytelling',
+        category: 'Layout',
+        image: 'images/oasis-threads-storytelling.svg'
+      }
+    ],
+    tags: ['HTML5', 'CSS3', 'Responsive UI', 'Vercel']
   }
 };
