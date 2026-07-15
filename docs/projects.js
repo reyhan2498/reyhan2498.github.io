@@ -36,6 +36,19 @@ export const projects = [
     featured: false
   },
   {
+    title: 'Not Your Average Support',
+    category: 'wordpress',
+    categoryLabel: 'WordPress Website Redesign',
+    summary:
+      'Responsive WordPress rebuild for an inclusive education business with improved mobile UX, sticky navigation, and stronger SEO structure.',
+    caseStudy: 'notyouraveragesupport',
+    link: 'https://notyouraveragesupport.co.nz',
+    image: 'images/pic06.png',
+    imagePosition: 'center center',
+    tags: ['WordPress', 'Gutenberg', 'CSS', 'SEO'],
+    featured: false
+  },
+  {
     title: 'DailyStreaks',
     category: 'mobile',
     categoryLabel: 'Flutter App',

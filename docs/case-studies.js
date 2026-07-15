@@ -125,5 +125,35 @@ export const caseStudies = {
       }
     ],
     tags: ['HTML5', 'CSS3', 'Responsive UI', 'Vercel']
+  },
+  notyouraveragesupport: {
+    title: 'Not Your Average Support',
+    subtitle: 'WordPress redesign for inclusive education',
+    period: 'Freelance project · 2025',
+    intro:
+      'A WordPress website refresh for a local Auckland business focused on inclusive education, balancing polished visuals with stronger technical performance and accessibility.',
+    stats: [
+      { value: 'Mobile', label: 'Responsive fixes' },
+      { value: 'Sticky', label: 'Header UX' },
+      { value: 'SEO', label: 'Structured hierarchy' },
+      { value: 'AIOSEO', label: 'Metadata' }
+    ],
+    overview: [
+      'I recently wrapped up a project for Not Your Average Support, a local Auckland business focused on inclusive education. While the WordPress Site Editor is a powerful tool, achieving a high-end, responsive feel often requires going beyond the standard UI.',
+      'This project was a deep dive into balancing design aesthetics with technical performance. I focused on mobile responsiveness, sticky navigation, and semantic SEO structure to improve both user experience and long-term discoverability.'
+    ],
+    highlights: [
+      {
+        title: 'Mobile responsiveness',
+        category: 'UX',
+        image: 'images/pic06.png'
+      },
+      {
+        title: 'Sticky navigation',
+        category: 'Interaction',
+        image: 'images/pic02.jpg'
+      }
+    ],
+    tags: ['WordPress', 'Gutenberg', 'Custom CSS', 'SEO']
   }
 };
