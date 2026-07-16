@@ -11,18 +11,6 @@ export const projects = [
     featured: true
   },
   {
-    title: 'Dog Guy',
-    category: 'fullstack',
-    categoryLabel: 'Website Fix & Optimization',
-    summary:
-      'Fixed email deliverability issues and improved website layout for a local business. Migrated email system, configured DNS settings, and optimized mobile responsiveness.',
-    caseStudy: 'dogguy',
-    image: 'images/Dogguy01.png',
-    imagePosition: 'center center',
-    tags: ['Wix', 'Google Workspace', 'DNS', 'Web Development'],
-    featured: false
-  },
-  {
     title: 'Oasis Threads Landing Page',
     category: 'frontend',
     categoryLabel: 'E-Commerce Landing Page',
@@ -33,6 +21,18 @@ export const projects = [
     image: 'images/oasis-threads-landing-page.png',
     imagePosition: 'center center',
     tags: ['HTML', 'CSS', 'Responsive UI', 'Vercel'],
+    featured: false
+  },
+  {
+    title: 'Dog Guy',
+    category: 'fullstack',
+    categoryLabel: 'Website Fix & Optimization',
+    summary:
+      'Fixed email deliverability issues and improved website layout for a local business. Migrated email system, configured DNS settings, and optimized mobile responsiveness.',
+    caseStudy: 'dogguy',
+    image: 'images/Dogguy01.png',
+    imagePosition: 'center center',
+    tags: ['Wix', 'Google Workspace', 'DNS', 'Web Development'],
     featured: false
   },
   {

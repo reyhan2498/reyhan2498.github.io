@@ -99,7 +99,7 @@ export const caseStudies = {
   oasisthreads: {
     title: 'Oasis Threads Landing Page',
     subtitle: 'E-commerce frontend mockup',
-    period: 'AI-assisted concept build · 2025',
+    period: 'AI-assisted concept build · 2026',
     intro:
       'A polished, responsive landing page concept for a minimalist fashion brand that combines premium storytelling, clean layout hierarchy, and conversion-focused UI.',
     stats: [
