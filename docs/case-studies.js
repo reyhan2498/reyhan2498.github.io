@@ -116,12 +116,12 @@ export const caseStudies = {
       {
         title: 'Hero experience',
         category: 'Design',
-        image: 'images/oasis-threads-hero.svg'
+        image: 'images/oasis-threads-hero.png'
       },
       {
         title: 'Product storytelling',
         category: 'Layout',
-        image: 'images/oasis-threads-storytelling.svg'
+        image: 'images/oasis-threads-storytelling.png'
       }
     ],
     tags: ['HTML5', 'CSS3', 'Responsive UI', 'Vercel']

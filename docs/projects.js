@@ -30,7 +30,7 @@ export const projects = [
       'Polished mobile-first landing page concept for a minimalist fashion brand with responsive storytelling and conversion-focused UI.',
     caseStudy: 'oasisthreads',
     link: 'https://oasis-threads-landing-page.vercel.app',
-    image: 'images/oasis-threads-landing-page.svg',
+    image: 'images/oasis-threads-landing-page.png',
     imagePosition: 'center center',
     tags: ['HTML', 'CSS', 'Responsive UI', 'Vercel'],
     featured: false
