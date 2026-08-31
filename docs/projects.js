@@ -11,6 +11,19 @@ export const projects = [
     featured: true
   },
   {
+    title: 'Zuhairah',
+    category: 'fullstack',
+    categoryLabel: 'Full Stack E-Commerce',
+    summary:
+      'Modest activewear storefront — planned in Figma, then built end-to-end with Next.js and Supabase, including variant selection and order enquiries.',
+    caseStudy: 'zuhairah',
+    link: 'https://zuhairah.vercel.app',
+    image: 'images/zuhairah-hero.jpg',
+    imagePosition: 'center center',
+    tags: ['Figma', 'Next.js', 'Supabase', 'Tailwind CSS'],
+    featured: false
+  },
+  {
     title: 'Oasis Threads Landing Page',
     category: 'frontend',
     categoryLabel: 'E-Commerce Landing Page',

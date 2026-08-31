@@ -126,6 +126,29 @@ export const caseStudies = {
     ],
     tags: ['HTML5', 'CSS3', 'Responsive UI', 'Vercel']
   },
+  zuhairah: {
+    title: 'Zuhairah',
+    subtitle: 'Modest activewear e-commerce — from Figma to full stack',
+    period: 'Personal project · 2026',
+    intro:
+      'A storefront concept for premium modest activewear and performance sports hijabs, planned in Figma before being built into a live, full-stack Next.js and Supabase application.',
+    stats: [
+      { value: '3', label: 'Design → build phases' },
+      { value: '2', label: 'Products, full variant system' },
+      { value: 'Next.js', label: 'Frontend framework' },
+      { value: 'Supabase', label: 'Backend & database' }
+    ],
+    overview: [
+      'I started Zuhairah by mapping out the brand system and page layouts in Figma — color palette, typography, component states, and responsive behavior — before writing any code, so the front-end build had a clear visual target from the start.',
+      'The frontend is built with Next.js, TypeScript, and Tailwind CSS, with Framer Motion micro-interactions, dynamic color-to-image variant swapping, and a fully responsive layout. The backend runs on Supabase (Postgres), with products, categories, and per-color/size variants modeled relationally, secured with row-level security policies for public read access.'
+    ],
+    highlights: [
+      { title: 'Figma design system', category: 'Design', image: 'images/zuhairah-figma.png' },
+      { title: 'Frontend build', category: 'Frontend', image: 'images/zuhairah-frontend.png' },
+      { title: 'Supabase backend', category: 'Database', image: 'images/zuhairah-supabase.png' }
+    ],
+    tags: ['Figma', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Framer Motion']
+  },
   notyouraveragesupport: {
     title: 'Not Your Average Support',
     subtitle: 'WordPress redesign for inclusive education',
