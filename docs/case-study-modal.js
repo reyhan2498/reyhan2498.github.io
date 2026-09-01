@@ -78,22 +78,29 @@ function renderCaseStudy(id) {
           (item) => {
             const hideImage = item.category === 'Platform' || item.category === 'Backend';
             const hasVideo = item.video;
+            const isGallery = Array.isArray(item.images) && item.images.length > 1;
             return `
-          <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}${item.category === 'Before' ? ' case-modal__highlight--before' : ''}${item.category === 'After' ? ' case-modal__highlight--after' : ''}">
-            ${!hideImage ? `
-            <div class="case-modal__highlight-media">
-              ${hasVideo ? `
-              <video controls preload="metadata" poster="${item.image}">
-                <source src="${item.video}" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>` : `
-              <img
-                src="${item.image}"
-                alt="${item.title}"
-                loading="lazy"
-                ${item.imagePosition ? `style="object-position: ${item.imagePosition}"` : ''}
-              />` }
-            </div>` : ''}
+            <article class="case-modal__highlight${hideImage ? ' case-modal__highlight--no-image' : ''}${hasVideo ? ' case-modal__highlight--video' : ''}${isGallery ? ' case-modal__highlight--gallery' : ''}${item.tall ? ' case-modal__highlight--tall' : ''}${item.category === 'Before' ? ' case-modal__highlight--before' : ''}${item.category === 'After' ? ' case-modal__highlight--after' : ''}">
+              ${!hideImage ? `
+              <div class="case-modal__highlight-media">
+                ${hasVideo ? `
+                <video controls preload="metadata" poster="${item.image}">
+                  <source src="${item.video}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>` : isGallery ? `
+                <div class="case-modal__gallery-track">
+                  ${item.images.map((src, i) => `<img src="${src}" alt="${item.title} — slide ${i + 1} of ${item.images.length}" loading="lazy" />`).join('')}
+                </div>
+                <button type="button" class="case-modal__gallery-btn case-modal__gallery-btn--prev" data-dir="prev" aria-label="Previous image">&#8249;</button>
+                <button type="button" class="case-modal__gallery-btn case-modal__gallery-btn--next" data-dir="next" aria-label="Next image">&#8250;</button>
+                <span class="case-modal__gallery-counter mono">1 / ${item.images.length}</span>` : `
+                <img
+                  src="${item.image}"
+                  alt="${item.title}"
+                  loading="lazy"
+                  ${item.imagePosition ? `style="object-position: ${item.imagePosition}"` : ''}
+                />` }
+              </div>` : ''}
             <div class="case-modal__highlight-body">
               <span class="case-modal__highlight-cat mono text-accent">${item.category}</span>
               <h4>${item.title}</h4>
@@ -158,14 +165,47 @@ export function initCaseStudyModal() {
   });
 
   document.addEventListener('click', (e) => {
-    // Don't open modal if clicking on a link inside a case study card
-    if (e.target.closest('.work-card-link')) return;
+  // Don't open modal if clicking on a link inside a case study card
+  if (e.target.closest('.work-card-link')) return;
 
-    const trigger = e.target.closest('[data-case-study]');
-    if (!trigger) return;
-    e.preventDefault();
-    openCaseStudy(trigger.dataset.caseStudy);
+  const galleryBtn = e.target.closest('.case-modal__gallery-btn');
+  if (galleryBtn) {
+    const track = galleryBtn
+      .closest('.case-modal__highlight-media')
+      ?.querySelector('.case-modal__gallery-track');
+    if (track) {
+      const dir = galleryBtn.dataset.dir === 'next' ? 1 : -1;
+      track.scrollBy({ left: dir * track.clientWidth, behavior: 'smooth' });
+    }
+    return;
+  }
+
+  const trigger = e.target.closest('[data-case-study]');
+  if (!trigger) return;
+  e.preventDefault();
+  openCaseStudy(trigger.dataset.caseStudy);
   });
+
+  // Scroll doesn't bubble, so listen in the capture phase to catch it
+  // from any gallery track nested inside the modal.
+  document.addEventListener(
+    'scroll',
+    (e) => {
+      const track = e.target.closest?.('.case-modal__gallery-track');
+      if (!track) return;
+      const counter = track
+        .closest('.case-modal__highlight-media')
+        ?.querySelector('.case-modal__gallery-counter');
+      if (!counter) return;
+      const total = track.children.length;
+      const index = Math.min(
+        Math.round(track.scrollLeft / track.clientWidth) + 1,
+        total
+      );
+      counter.textContent = `${index} / ${total}`;
+    },
+    true
+  );
 
   const hash = location.hash.replace(/^#/, '');
   if (hash.startsWith('case-study-')) {
