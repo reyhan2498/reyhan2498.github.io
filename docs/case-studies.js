@@ -143,9 +143,24 @@ export const caseStudies = {
       'The frontend is built with Next.js, TypeScript, and Tailwind CSS, with Framer Motion micro-interactions, dynamic color-to-image variant swapping, and a fully responsive layout. The backend runs on Supabase (Postgres), with products, categories, and per-color/size variants modeled relationally, secured with row-level security policies for public read access.'
     ],
     highlights: [
-      { title: 'Figma design system', category: 'Design', image: 'images/zuhairah-figma.png' },
-      { title: 'Frontend build', category: 'Frontend', image: 'images/zuhairah-frontend.png' },
-      { title: 'Supabase backend', category: 'Database', image: 'images/zuhairah-supabase.png' }
+      {
+        title: 'Figma design system',
+        category: 'Design',
+        images: [
+          'images/zuhairah-figma-1.jpg',
+          'images/zuhairah-figma-2.jpg',
+          'images/zuhairah-figma-3.jpg',
+          'images/zuhairah-figma-4.jpg'
+      ]
+      },
+      { title: 'Frontend build', 
+        category: 'Frontend', 
+        image: 'images/zuhairah-frontend.png' 
+      },
+      { title: 'Supabase backend', 
+        category: 'Database', 
+        image: 'images/zuhairah-supabase.png' 
+      }
     ],
     tags: ['Figma', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Framer Motion']
   },
