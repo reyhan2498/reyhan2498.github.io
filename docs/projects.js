@@ -56,7 +56,7 @@ export const projects = [
       'Responsive WordPress rebuild for an inclusive education business with improved mobile UX, sticky navigation, and stronger SEO structure.',
     caseStudy: 'notyouraveragesupport',
     link: 'https://notyouraveragesupport.co.nz',
-    image: 'images/pic06.png',
+    image: 'images/average-education-footer.png',
     imagePosition: 'center center',
     tags: ['WordPress', 'Gutenberg', 'CSS', 'SEO'],
     featured: false

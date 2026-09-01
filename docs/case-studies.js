@@ -184,12 +184,12 @@ export const caseStudies = {
       {
         title: 'Mobile responsiveness',
         category: 'UX',
-        image: 'images/pic06.png'
+        image: 'images/average-education-mobile.png'
       },
       {
         title: 'Sticky navigation',
         category: 'Interaction',
-        image: 'images/pic02.jpg'
+        image: 'images/average-education-Header.png'
       }
     ],
     tags: ['WordPress', 'Gutenberg', 'Custom CSS', 'SEO']
