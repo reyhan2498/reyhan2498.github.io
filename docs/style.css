@@ -142,8 +142,9 @@ footer{padding:10px 0 60px;text-align:center;font:13px var(--mono);color:var(--m
 @keyframes rp{from{transform:rotate(45deg) scale(1)}to{transform:rotate(45deg) scale(8);opacity:0;border-width:1px}}
 .cd,.cr{position:fixed;left:0;top:0;pointer-events:none;z-index:199}
 .cd{width:7px;height:7px;margin:-3px 0 0 -3px;background:var(--red)}
-.cr{width:34px;height:34px;margin:-17px 0 0 -17px;border:2px solid var(--ink);border-radius:2px;transition:width .2s,height .2s,margin .2s,background .2s,border-color .2s,rotate .25s}
-.cr.hv{width:46px;height:46px;margin:-23px 0 0 -23px;rotate:45deg;background:rgba(217,68,43,.16);border-color:var(--red)}
+.cr{width:34px;height:34px;margin:-17px 0 0 -17px}
+.cr::after{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:2px;transition:transform .25s,background .2s,border-color .2s}
+.cr.hv::after{transform:rotate(45deg) scale(1.35);background:rgba(255,214,60,.38);border-color:var(--ink);border-width:3px}
 .nofx .cd,.nofx .cr,.nofx .sp,.nofx .rp{display:none}
 .sw[aria-pressed="false"]{opacity:.4}
 .pc2{transition:transform .15s,box-shadow .25s}.pc2:hover{will-change:transform}
