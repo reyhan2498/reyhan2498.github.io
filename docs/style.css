@@ -141,7 +141,8 @@ footer{padding:10px 0 60px;text-align:center;font:13px var(--mono);color:var(--m
 .rp{position:fixed;z-index:200;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border:3px solid var(--red);animation:rp .55s cubic-bezier(.1,.7,.3,1) forwards}
 @keyframes rp{from{transform:rotate(45deg) scale(1)}to{transform:rotate(45deg) scale(8);opacity:0;border-width:1px}}
 .cd,.cr{position:fixed;left:0;top:0;pointer-events:none;z-index:199}
-.cd{width:7px;height:7px;margin:-3px 0 0 -3px;background:var(--red)}
+html.fxcur,html.fxcur *{cursor:none!important}
+.cd{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--red);box-shadow:0 0 0 2px var(--paper)}
 .cr{width:34px;height:34px;margin:-17px 0 0 -17px}
 .cr::after{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:2px;transition:transform .25s,background .2s,border-color .2s}
 .cr.hv::after{transform:rotate(45deg) scale(1.35);background:rgba(255,214,60,.38);border-color:var(--ink);border-width:3px}
